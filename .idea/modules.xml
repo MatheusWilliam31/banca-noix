@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/BancaNoix.iml" filepath="$PROJECT_DIR$/.idea/BancaNoix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/banca-noix/banca-noix.iml" filepath="$PROJECT_DIR$/banca-noix/banca-noix.iml" />
     </modules>
   </component>
 </project>
