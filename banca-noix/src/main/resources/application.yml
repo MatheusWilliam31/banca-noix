@@ -1,5 +1,8 @@
 spring:
-   application:
-     name: banca-noix
   datasource:
-      type: com.zaxxer.hikari.HikariDataSource
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: BANCA_NOIX_BD
+    password: BANCANOIX123
+  liquibase:
+    change-log: classpath:/config/liquibase/master.xml
