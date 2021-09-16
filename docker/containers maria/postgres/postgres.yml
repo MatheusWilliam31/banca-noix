@@ -1,0 +1,9 @@
+version: '2'
+services:
+  bn-postgres:
+    image: postgres:11.5
+    environment:
+      - POSTGRES_USER=BANCA_NOIX_BD
+      - POSTGRES_PASSWORD=BANCANOIX123
+    ports:
+    - 5432:5432
