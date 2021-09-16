@@ -1,0 +1,68 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+                    http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+
+    <changeSet id="202109152147" author="matheus.loose">
+        <createTable tableName="USUARIO">
+            <column name="ID" type="INT" autoIncrement="true" remarks="Identificador(ID) para usuario">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="NOME" type="varchar(100)" remarks="Nome do usuario">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="varchar(50)" remarks="Email unico do usuario">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="CPF" type="varchar(15)" remarks="CPF unico do usuario">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="DT_NASCIMENTO" type="date" remarks="Data de Nascimento do usuario">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TELEFONE" type="varchar(14)" remarks="Telefone para contato com o usuario">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ST_ATIVIDADE" type="bit" remarks="Status de atividade do usuario na empresa">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CARGO_ID" type="int" remarks="Referencia de identificação ao cargo do usuario">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="USUARIO"
+                                 baseColumnNames="CARGO_ID"
+                                 constraintName="FK_USUARIO_CARGO"
+                                 referencedTableName="CARGO"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+    <changeSet id="202109161013" author="matheus.loose">
+        <createTable tableName="REL_USUARIO_EVENTO">
+            <column name="EVENTO_ID" remarks="Identificado do ID evento">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="USUARIO_ID" remarks="Identificado do ID usuario">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="REL_USUARIO_EVENTO"
+                                 baseColumnNames="EVENTO_ID"
+                                 constraintName="FK_REL_EVENTO"
+                                 referencedTableName="EVENTO"
+                                 referencedColumnNames="ID"/>
+
+        <addForeignKeyConstraint baseTableName="REL_USUARIO_EVENTO"
+                                 baseColumnNames="USUARIO_ID"
+                                 constraintName="FK_REL_USUARIO"
+                                 referencedTableName="USUARIO"
+                                 referencedColumnNames="ID"/>
+    </changeSet>
+
+</databaseChangeLog>
