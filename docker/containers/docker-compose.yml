@@ -1,7 +1,0 @@
-version: '2'
-services:
-  bn-postgres:
-    extends:
-      file: postgres/postgres.yml
-      service: bn-postgres
-    container_name: bn-postgres

@@ -5,4 +5,5 @@ spring:
     username: BANCA_NOIX_BD
     password: BANCANOIX123
   liquibase:
-    change-log: classpath:jetbrains:/resources/config/liquibase.changelog/master.xml
+    change-log: classpath:/config/liquibase/master.xml
+#    drop-first: true
