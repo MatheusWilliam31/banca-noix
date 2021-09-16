@@ -1,6 +1,6 @@
 version: '2'
 services:
-  bnx-postgres:
+  bn-postgres:
     extends:
       file: postgres/postgres.yml
       service: bnx-postgres

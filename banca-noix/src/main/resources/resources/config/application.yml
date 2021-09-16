@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/BANCA_NOIX_BD
+    username: BANCA_NOIX_BD
+    password: BANCANOIX123
+  liquibase:
+    change-log: classpath:/config/liquibase/master.xml
+#    drop-first: true
