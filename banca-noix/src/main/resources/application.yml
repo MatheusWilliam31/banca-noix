@@ -1,0 +1,5 @@
+spring:
+   application:
+     name: banca-noix
+  datasource:
+      type: com.zaxxer.hikari.HikariDataSource
