@@ -1,6 +1,6 @@
 version: '2'
 services:
-  bn-postgres:
+  bnx-postgres:
     image: postgres:11.5
     environment:
       - POSTGRES_USER=BANCA_NOIX_BD
