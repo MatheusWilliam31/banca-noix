@@ -1,7 +1,7 @@
 version: '2'
 services:
-  bnx-postgres:
+  bn-postgres:
     extends:
       file: postgres/postgres.yml
       service: bnx-postgres
-    container_name: bnx-postgres
+    container_name: bn-postgres
