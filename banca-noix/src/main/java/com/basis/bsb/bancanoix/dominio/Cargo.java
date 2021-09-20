@@ -18,5 +18,13 @@ public class Cargo implements Serializable {
     private Long id;
 
     @Column(name = "titulo")
-    private String titulo;
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
