@@ -23,8 +23,6 @@ public class Motivo implements Serializable {
     @Column(name = "descricao")
     private String descricao;
 
-    @NotBlank
-    @Size(min = 5, max = 20)
     @Column(name = "titulo")
     private String titulo;
 

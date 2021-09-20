@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -36,6 +37,7 @@ public class EventoDTO implements Serializable {
     private Situacao situacao;
 
     @NotBlank
+    @Max(30)
     private Motivo motivo;
 
     @NotBlank
