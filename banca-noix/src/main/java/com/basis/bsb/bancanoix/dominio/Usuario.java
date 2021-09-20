@@ -2,10 +2,15 @@ package com.basis.bsb.bancanoix.dominio;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -43,5 +48,9 @@ public class Usuario implements Serializable {
     @Column(name = "cargo_id")
     private Cargo cargo;
 
-    private List<Evento> eventos;
+    @ManyToMany
+    @JoinTable(name = "rel_usuario_evento",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "evento_id"))
+    private List<Evento> eventos = new ArrayList<>();
 }

@@ -14,6 +14,5 @@ import java.io.Serializable;
 public class SituacaoDTO implements Serializable {
 
     private Long id;
-
     private String nome;
 }

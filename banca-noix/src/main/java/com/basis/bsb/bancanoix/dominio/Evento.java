@@ -4,8 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,7 +26,7 @@ public class Evento implements Serializable {
     private String nome;
 
     @Column(name = "data")
-    private LocalDate dtEvento;
+    private LocalDate data;
 
     @Column(name = "valor")
     private Double valor;
@@ -35,13 +39,9 @@ public class Evento implements Serializable {
     @JoinColumn(name = "situacao_id")
     private Situacao situacao;
 
-    public LocalDate getDtEvento() {
-        return dtEvento;
-    }
+    @ManyToMany(mappedBy = "eventos")
+    private List<Usuario> usuarios = new ArrayList<>();
 
-    public void setDtEvento(LocalDate dtEvento) {
-        this.dtEvento = dtEvento;
-    }
 }
 
 
