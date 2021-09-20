@@ -8,7 +8,7 @@
 
     <changeSet id="202109152147" author="matheus.loose">
         <createTable tableName="USUARIO">
-            <column name="ID" type="INT" autoIncrement="true" remarks="Identificador(ID) para usuario">
+            <column name="ID" type="bigint" autoIncrement="true" remarks="Identificador(ID) para usuario">
                 <constraints primaryKey="true"/>
             </column>
             <column name="NOME" type="varchar(100)" remarks="Nome do usuario">
@@ -26,10 +26,10 @@
             <column name="TELEFONE" type="varchar(14)" remarks="Telefone para contato com o usuario">
                 <constraints nullable="false"/>
             </column>
-            <column name="ST_ATIVIDADE" type="bit" remarks="Status de atividade do usuario na empresa">
+            <column name="ST_ATIVIDADE" type="boolean" remarks="Status de atividade do usuario na empresa">
                 <constraints nullable="false"/>
             </column>
-            <column name="CARGO_ID" type="int" remarks="Referencia de identificação ao cargo do usuario">
+            <column name="CARGO_ID" type="bigint" remarks="Referencia de identificação ao cargo do usuario">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -42,13 +42,13 @@
     </changeSet>
 
     <changeSet id="202109161013" author="matheus.loose">
-        <createTable tableName="REL_USUARIO_EVENTO">
-            <column name="EVENTO_ID" remarks="Identificado do ID evento">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
 
-            <column name="USUARIO_ID" remarks="Identificado do ID usuario">
-                <constraints nullable="false" primaryKey="true"/>
+        <createTable tableName="REL_USUARIO_EVENTO">
+            <column name="EVENTO_ID" type="INT" remarks="Coluna para PK E FK de evento">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="USUARIO_ID" type="INT" remarks="Coluna para PK E FK de usuario">
+                <constraints primaryKey="true"/>
             </column>
         </createTable>
 
