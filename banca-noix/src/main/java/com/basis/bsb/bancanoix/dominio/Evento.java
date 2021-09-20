@@ -22,7 +22,7 @@ public class Evento implements Serializable {
     private String nome;
 
     @Column(name = "data")
-    private LocalDate data;
+    private LocalDate dtEvento;
 
     @Column(name = "valor")
     private Double valor;
@@ -35,6 +35,13 @@ public class Evento implements Serializable {
     @JoinColumn(name = "situacao_id")
     private Situacao situacao;
 
+    public LocalDate getDtEvento() {
+        return dtEvento;
+    }
+
+    public void setDtEvento(LocalDate dtEvento) {
+        this.dtEvento = dtEvento;
+    }
 }
 
 
