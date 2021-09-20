@@ -1,7 +1,7 @@
 package com.basis.bsb.bancanoix.servico.dto;
 
-import com.basis.bsb.bancanoix.dominio.Cargo;
-import com.basis.bsb.bancanoix.dominio.Evento;
+import com.basis.bsb.bancanoix.dominio.Situacao;
+import com.basis.bsb.bancanoix.dominio.Motivo;
 import com.basis.bsb.bancanoix.dominio.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,31 +12,23 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioDTO extends EventoDTO {
+public class EventoDTO implements Serializable {
 
     private Long id;
 
     private String nome;
 
-    private LocalDate dtNascimento;
+    private LocalDate dtEvento;
 
-    private String cpf;
+    private Double valor;
 
-    private String email;
+    private Situacao situacao;
 
-    private String telefone;
+    private Motivo motivo;
 
-    private byte[] foto;
-
-    private boolean status;
-
-    private Cargo cargo;
-
-    private List<Evento> eventos;
-
+    private List<Usuario> usuarios;
 }
