@@ -8,6 +8,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,16 +22,12 @@ public class Evento implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @NotBlank
-    @Size(min = 5, max = 20)
     @Column(name = "nome")
     private String nome;
 
-    @NotBlank
     @Column(name = "data")
     private LocalDate data;
 
-    @NotBlank
     @Column(name = "valor")
     private Double valor;
 
@@ -40,6 +38,9 @@ public class Evento implements Serializable {
     @ManyToOne
     @JoinColumn(name = "situacao_id")
     private Situacao situacao;
+
+    @ManyToMany(mappedBy = "eventos")
+    private List<Usuario> usuarios = new ArrayList<>();
 
 }
 

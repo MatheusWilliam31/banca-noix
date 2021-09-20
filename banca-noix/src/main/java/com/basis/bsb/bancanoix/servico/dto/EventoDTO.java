@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -20,15 +22,22 @@ public class EventoDTO implements Serializable {
 
     private Long id;
 
+    @NotBlank
+    @Size(min = 5, max = 20)
     private String nome;
 
-    private LocalDate dtEvento;
+    @NotBlank
+    private LocalDate data;
 
+    @NotBlank
     private Double valor;
 
+    @NotBlank
     private Situacao situacao;
 
+    @NotBlank
     private Motivo motivo;
 
+    @NotBlank
     private List<Usuario> usuarios;
 }

@@ -20,8 +20,6 @@ public class Motivo implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @NotBlank
-    @Max(50)
     @Column(name = "descricao")
     private String descricao;
 

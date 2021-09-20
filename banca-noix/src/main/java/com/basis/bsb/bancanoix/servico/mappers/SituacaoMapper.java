@@ -1,20 +1,19 @@
 package com.basis.bsb.bancanoix.servico.mappers;
 
-import com.basis.bsb.bancanoix.dominio.Evento;
+
 import com.basis.bsb.bancanoix.dominio.Situacao;
 import com.basis.bsb.bancanoix.servico.dto.SelectDTO;
-import com.basis.bsb.bancanoix.servico.dto.SituacaoDTO;
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
-import java.util.List;
+@Mapper(componentModel = "spring")
+public interface SituacaoMapper extends EntityMapper<SelectDTO, Situacao> {
 
-@Mapper(componentModel = "spring", uses = Evento.class)
-public interface SituacaoMapper extends EntityMapper <SituacaoDTO, Situacao> {
-    List<Situacao> toEntity(List<SituacaoDTO> dtoList);
+    @Mapping(source = "id", target = "value")
+    @Mapping(source = "nome", target = "label")
+    SelectDTO toDto(Situacao situacao);
 
-    Long getId();
-
-    String getNome();
-
+    @InheritInverseConfiguration
     Situacao toEntity(SelectDTO selectDTO);
 }
