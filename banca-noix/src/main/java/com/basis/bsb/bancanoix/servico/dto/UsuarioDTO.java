@@ -42,8 +42,8 @@ public class UsuarioDTO implements Serializable {
     @Min(11)
     private String telefone;
 
-    @NotBlank
-    private byte[] foto;
+//    @NotBlank
+//    private byte[] imagem;
 
     @NotBlank
     private boolean status;

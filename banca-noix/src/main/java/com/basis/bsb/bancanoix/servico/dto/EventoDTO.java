@@ -1,8 +1,5 @@
 package com.basis.bsb.bancanoix.servico.dto;
 
-import com.basis.bsb.bancanoix.dominio.Situacao;
-import com.basis.bsb.bancanoix.dominio.Motivo;
-import com.basis.bsb.bancanoix.dominio.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,12 +31,12 @@ public class EventoDTO implements Serializable {
     private Double valor;
 
     @NotBlank
-    private Situacao situacao;
+    private SelectDTO situacao;
 
     @NotBlank
     @Max(30)
-    private Motivo motivo;
+    private SelectDTO motivo;
 
     @NotBlank
-    private List<Usuario> usuarios;
+    private List<SelectDTO> patrocinador;
 }

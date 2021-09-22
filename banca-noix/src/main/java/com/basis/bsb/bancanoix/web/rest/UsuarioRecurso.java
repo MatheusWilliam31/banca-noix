@@ -44,10 +44,4 @@ public class UsuarioRecurso {
         return ResponseEntity.created(uri).body(dto);
     }
 
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<UsuarioDTO> delete(@PathVariable Long id) {
-        servico.delete(id);
-        return ResponseEntity.noContent().build();
-    }
-
 }

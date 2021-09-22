@@ -1,19 +1,18 @@
 package com.basis.bsb.bancanoix.servico;
 
 import com.basis.bsb.bancanoix.dominio.Evento;
-import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.repositorio.EventoRepositorio;
 import com.basis.bsb.bancanoix.servico.dto.EventoDTO;
-import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;
 import com.basis.bsb.bancanoix.servico.exceptions.ResourceNotFoundException;
+import com.basis.bsb.bancanoix.servico.filtro.EventoFiltro;
+import com.basis.bsb.bancanoix.servico.mappers.CargoMapper;
 import com.basis.bsb.bancanoix.servico.mappers.EventoMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,13 +20,12 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class EventoServico {
 
-    private final EventoRepositorio repositorio;
     private final EventoMapper mapper;
+    private final EventoRepositorio repositorio;
 
+    public List<EventoDTO> filtrarData(EventoFiltro filtro) {
+        return mapper.toDto(repositorio.findAll(filtro.filter()));
 
-    public Page<EventoDTO> findAllPaged(PageRequest pageRequest) {
-        Page<Evento> page = repositorio.findAll(pageRequest);
-        return page.map(mapper::toDto);
     }
 
     public EventoDTO findById(Long id) {
@@ -42,12 +40,5 @@ public class EventoServico {
         return mapper.toDto(entity);
     }
 
-    public void delete(Long id) {
-        try {
-            repositorio.deleteById(id);
-        } catch (EmptyResultDataAccessException resultadoEx) {
-            throw new ResourceNotFoundException("Evento do ID: " + id + " não encontrado!");
-        }
-    }
 }
 

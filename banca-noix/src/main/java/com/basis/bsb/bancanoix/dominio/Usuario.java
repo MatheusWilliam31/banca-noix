@@ -2,12 +2,9 @@ package com.basis.bsb.bancanoix.dominio;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.br.CPF;
+
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -39,14 +36,16 @@ public class Usuario implements Serializable {
     @Column(name = "telefone")
     private String telefone;
 
-    @Column(name = "foto")
-    private byte[] foto;
-
     @Column(name = "st_atividade")
     private boolean status;
 
-    @Column(name = "cargo_id")
+    @ManyToOne
+    @JoinColumn(name = "cargo_id")
     private Cargo cargo;
+
+    @Lob
+    @Column(name ="imagem", nullable = false,columnDefinition = "blob")
+    private byte[] image;
 
     @ManyToMany
     @JoinTable(name = "rel_usuario_evento",
