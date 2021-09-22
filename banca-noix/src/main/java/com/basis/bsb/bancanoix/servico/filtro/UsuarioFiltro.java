@@ -1,5 +1,7 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
+import com.basis.bsb.bancanoix.dominio.Cargo;
+import com.basis.bsb.bancanoix.dominio.Cargo_;
 import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.dominio.Usuario_;
 import org.springframework.data.jpa.domain.Specification;
@@ -18,6 +20,7 @@ public class UsuarioFiltro implements EntityFiltro{
     private String nome;
     private String cargo;
     private String email;
+    private String cpf;
 
     @Override
     public Specification<Usuario> filter() {
@@ -42,6 +45,14 @@ public class UsuarioFiltro implements EntityFiltro{
 
         if (email != null){
             predicates.add(cb.like(root.get(Usuario_.email),"%" + email + "%"));
+        }
+
+        if (cpf != null){
+            predicates.add(cb.like(root.get(Usuario_.cpf),"%" + cpf + "%"));
+        }
+
+        if (cargo != null){
+            predicates.add(cb.like(root.join(Cargo_.NOME), "%" + cargo + "%"));
         }
 
         return predicates;
