@@ -1,16 +1,16 @@
 package com.basis.bsb.bancanoix.servico;
 
 import com.basis.bsb.bancanoix.dominio.Evento;
-import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.repositorio.EventoRepositorio;
+import com.basis.bsb.bancanoix.servico.dto.EmailDTO;
 import com.basis.bsb.bancanoix.servico.dto.EventoDTO;
-import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;
 import com.basis.bsb.bancanoix.servico.exceptions.ResourceNotFoundException;
 import com.basis.bsb.bancanoix.servico.mappers.EventoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -23,7 +23,18 @@ public class EventoServico {
 
     private final EventoRepositorio repositorio;
     private final EventoMapper mapper;
+    private final EmailServico servico;
 
+    @Scheduled(cron = "0 0 8 * * 5")
+    public void rotinaDeEmail() {
+        EmailDTO emailDTO = new EmailDTO();
+        emailDTO.setDestinatario("exemplo@gmail.com");
+        emailDTO.setAssunto("promocao");
+        emailDTO.setCorpo("promocao do fulano");
+        emailDTO.getCopias().add("exemplo@gmail.com");
+
+        servico.enviarEmail(emailDTO);
+    }
 
     public Page<EventoDTO> findAllPaged(PageRequest pageRequest) {
         Page<Evento> page = repositorio.findAll(pageRequest);

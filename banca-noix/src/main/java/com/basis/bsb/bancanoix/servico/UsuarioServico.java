@@ -4,6 +4,7 @@ import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.repositorio.UsuarioRepositorio;
 import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;
 import com.basis.bsb.bancanoix.servico.exceptions.ResourceNotFoundException;
+import com.basis.bsb.bancanoix.servico.filtro.UsuarioFiltro;
 import com.basis.bsb.bancanoix.servico.mappers.UsuarioMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,6 +27,10 @@ public class UsuarioServico {
     public Page<UsuarioDTO> findAllPaged(PageRequest pageRequest) {
         Page<Usuario> page = repositorio.findAll(pageRequest);
         return page.map(mapper::toDto);
+    }
+
+    public List<UsuarioDTO> obterTodosFiltrado(UsuarioFiltro filtro){
+        return mapper.toDto(repositorio.findAll(filtro.filter()));
     }
 
     public UsuarioDTO findById(Long id) {

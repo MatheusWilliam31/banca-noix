@@ -2,6 +2,7 @@ package com.basis.bsb.bancanoix.web.rest;
 
 import com.basis.bsb.bancanoix.servico.UsuarioServico;
 import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;
+import com.basis.bsb.bancanoix.servico.filtro.UsuarioFiltro;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,6 +20,7 @@ import java.net.URI;
 public class UsuarioRecurso {
 
     private final UsuarioServico servico;
+    private final UsuarioFiltro filtro;
 
     @GetMapping
     public ResponseEntity<Page<UsuarioDTO>> findAll(
@@ -29,6 +32,11 @@ public class UsuarioRecurso {
         PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
         Page<UsuarioDTO> list = servico.findAllPaged(pageRequest);
         return ResponseEntity.ok().body(list);
+    }
+
+    @GetMapping("filtro")
+    public ResponseEntity<List<UsuarioDTO>> obterTodosFiltrado(){
+        return ResponseEntity.ok(servico.obterTodosFiltrado(filtro));
     }
 
     @GetMapping(value = "/{id}")
