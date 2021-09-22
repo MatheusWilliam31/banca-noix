@@ -18,11 +18,16 @@ import java.util.List;
 @RequestMapping("/api/eventos")
 public class EventoRecurso {
 
-    private final EventoServico eventoServico;
+    private final EventoServico servico;
 
     @GetMapping("filtro")
     public ResponseEntity<List<EventoDTO>> filtrarData(EventoFiltro filtro) {
-        return ResponseEntity.ok(eventoServico.filtrarData(filtro));
+        return ResponseEntity.ok(servico.filtrarData(filtro));
+    private final EventoServico servico;
+
+    @GetMapping
+    public ResponseEntity<List<EventoDTO>> findAll() {
+        return ResponseEntity.ok(servico.findAll());
     }
 
     @GetMapping(value = "/{id}")
@@ -32,8 +37,8 @@ public class EventoRecurso {
     }
 
     @PostMapping
-    public ResponseEntity<EventoDTO> insert(@RequestBody EventoDTO dto) {
-        dto = eventoServico.insert(dto);
+    public ResponseEntity<EventoDTO> create(@RequestBody EventoDTO dto) {
+        dto = servico.save(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }

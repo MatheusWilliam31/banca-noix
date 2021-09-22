@@ -8,12 +8,10 @@ import com.basis.bsb.bancanoix.servico.filtro.EventoFiltro;
 import com.basis.bsb.bancanoix.servico.mappers.CargoMapper;
 import com.basis.bsb.bancanoix.servico.mappers.EventoMapper;
 import lombok.RequiredArgsConstructor;
-
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -26,19 +24,26 @@ public class EventoServico {
     public List<EventoDTO> filtrarData(EventoFiltro filtro) {
         return mapper.toDto(repositorio.findAll(filtro.filter()));
 
+    public List<EventoDTO> findAll(){
+        return mapper.toDto(repositorio.findAll());
     }
 
     public EventoDTO findById(Long id) {
-        Optional<Evento> obj = repositorio.findById(id);
-        Evento entity = obj.orElseThrow(() -> new ResourceNotFoundException("Evento não encontrado!"));
-        return mapper.toDto(entity);
+        return repositorio.findById(id).map(mapper::toDto).orElseThrow(() -> new ResourceNotFoundException("Evento não encontrado!"));
     }
 
-    public EventoDTO insert(EventoDTO dto) {
+    public EventoDTO save(EventoDTO dto) {
         Evento entity = mapper.toEntity(dto);
         entity = repositorio.save(entity);
         return mapper.toDto(entity);
     }
 
+    public void delete(Long id) {
+        try {
+            repositorio.deleteById(id);
+        } catch (EmptyResultDataAccessException resultadoEx) {
+            throw new ResourceNotFoundException("Evento não encontrado!");
+        }
+    }
 }
 

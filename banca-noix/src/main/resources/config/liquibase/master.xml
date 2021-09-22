@@ -12,5 +12,5 @@
              relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelogs/202109151719_criando_evento.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelogs/202109152147_criando_usuario.xml" relativeToChangelogFile="false"/>
-
+    <include file="config/liquibase/changelogs/202109221316_apagando_patrocinador.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

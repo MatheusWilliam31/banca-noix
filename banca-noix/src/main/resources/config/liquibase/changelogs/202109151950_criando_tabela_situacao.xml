@@ -4,26 +4,29 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <changeSet id="202109151940"  author="maria.ribeiro">
+    <changeSet id="202109151940" author="maria.ribeiro">
         <createTable tableName="situacao">
             <column name="id" type="int" autoIncrement="true" remarks="identificador tabela situacao">
-                <constraints nullable="false" primaryKey ="true"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="nome" type="varchar(20)" remarks="titulo da situacao">
-                <constraints nullable = "false"/>
+                <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
+
+    <changeSet id="202109152000" author="maria.ribeiro">
         <insert tableName="situacao">
-            <column name="nome" value="Adiado" remarks ="situacao do evento = adiado"/>
+            <column name="nome" value="Adiado"/>
         </insert>
         <insert tableName="situacao">
-            <column name="nome" value="Em espera" remarks ="situacao do evento = Em espera"/>
+            <column name="nome" value="Em espera"/>
         </insert>
         <insert tableName="situacao">
-            <column name="nome" value="Realizado" remarks ="situacao do evento = realizado"/>
+            <column name="nome" value="Realizado"/>
         </insert>
         <insert tableName="situacao">
-            <column name="nome" value="Cancelado" remarks ="situacao do evento = Cancelado"/>
+            <column name="nome" value="Cancelado"/>
         </insert>
     </changeSet>
 

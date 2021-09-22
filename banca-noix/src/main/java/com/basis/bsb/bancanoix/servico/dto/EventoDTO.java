@@ -1,8 +1,7 @@
 package com.basis.bsb.bancanoix.servico.dto;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.Max;
@@ -14,8 +13,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class EventoDTO implements Serializable {
 
     private Long id;
@@ -25,6 +22,7 @@ public class EventoDTO implements Serializable {
     private String nome;
 
     @NotBlank
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate data;
 
     @NotBlank
@@ -38,5 +36,5 @@ public class EventoDTO implements Serializable {
     private SelectDTO motivo;
 
     @NotBlank
-    private List<SelectDTO> patrocinador;
+    private List<PatrocinadorDTO> patrocinador;
 }

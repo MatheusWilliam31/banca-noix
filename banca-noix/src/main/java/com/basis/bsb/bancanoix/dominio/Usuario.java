@@ -3,8 +3,15 @@ package com.basis.bsb.bancanoix.dominio;
 import lombok.Getter;
 import lombok.Setter;
 
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,7 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "usuario")
+@Table(name = "USUARIO")
 public class Usuario implements Serializable {
 
     @Id
@@ -37,19 +44,12 @@ public class Usuario implements Serializable {
     private String telefone;
 
     @Column(name = "st_atividade")
-    private boolean status;
+    private boolean active;
 
     @ManyToOne
     @JoinColumn(name = "cargo_id")
     private Cargo cargo;
 
-    @Lob
-    @Column(name ="imagem", nullable = false,columnDefinition = "blob")
-    private byte[] image;
-
-    @ManyToMany
-    @JoinTable(name = "rel_usuario_evento",
-            joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "evento_id"))
+    @ManyToMany(mappedBy = "patrocinador")
     private List<Evento> eventos = new ArrayList<>();
 }

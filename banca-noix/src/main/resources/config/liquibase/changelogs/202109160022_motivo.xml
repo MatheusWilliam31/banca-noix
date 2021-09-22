@@ -10,7 +10,7 @@
                 <constraints primaryKey="true"/>
             </column>
 
-            <column name="descricao" type="varchar(20)">
+            <column name="descricao" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
 
