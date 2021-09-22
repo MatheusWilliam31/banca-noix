@@ -1,10 +1,7 @@
 package com.basis.bsb.bancanoix.servico.dto;
 
-import com.basis.bsb.bancanoix.dominio.Cargo;
-import com.basis.bsb.bancanoix.dominio.Evento;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -19,8 +16,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class UsuarioDTO implements Serializable {
 
     private Long id;
@@ -30,6 +25,7 @@ public class UsuarioDTO implements Serializable {
     private String nome;
 
     @NotBlank
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dtNascimento;
 
     @CPF
@@ -43,15 +39,12 @@ public class UsuarioDTO implements Serializable {
     private String telefone;
 
     @NotBlank
-    private byte[] foto;
+    private boolean active;
 
     @NotBlank
-    private boolean status;
+    private SelectDTO cargo;
 
     @NotBlank
-    private Cargo cargo;
-
-    @NotBlank
-    private List<Evento> eventos;
+    private List<EventoDTO> eventos;
 
 }

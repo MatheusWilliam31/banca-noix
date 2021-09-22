@@ -33,7 +33,9 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
 
+    <changeSet id="202109161010" author="matheus.loose">
         <addForeignKeyConstraint baseTableName="USUARIO"
                                  baseColumnNames="CARGO_ID"
                                  constraintName="FK_USUARIO_CARGO"
@@ -47,7 +49,7 @@
             <column name="EVENTO_ID" type="INT" remarks="Coluna para PK E FK de evento">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="USUARIO_ID" type="INT" remarks="Coluna para PK E FK de usuario">
+            <column name="PATROCINADOR_ID" type="INT" remarks="Coluna para PK E FK de patrocinador">
                 <constraints primaryKey="true"/>
             </column>
         </createTable>
@@ -59,7 +61,7 @@
                                  referencedColumnNames="ID"/>
 
         <addForeignKeyConstraint baseTableName="REL_USUARIO_EVENTO"
-                                 baseColumnNames="USUARIO_ID"
+                                 baseColumnNames="PATROCINADOR_ID"
                                  constraintName="FK_REL_USUARIO"
                                  referencedTableName="USUARIO"
                                  referencedColumnNames="ID"/>
