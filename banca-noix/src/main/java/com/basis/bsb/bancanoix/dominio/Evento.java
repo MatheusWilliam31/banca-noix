@@ -3,9 +3,16 @@ package com.basis.bsb.bancanoix.dominio;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,7 +21,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "evento")
+@Table(name = "EVENTO")
 public class Evento implements Serializable {
 
     @Id
@@ -39,8 +46,11 @@ public class Evento implements Serializable {
     @JoinColumn(name = "situacao_id")
     private Situacao situacao;
 
-    @ManyToMany(mappedBy = "eventos")
-    private List<Usuario> usuarios = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(name = "rel_usuario_evento",
+            joinColumns = @JoinColumn(name ="evento_id"),
+            inverseJoinColumns = @JoinColumn(name = "patrocinador_id"))
+    private List<Usuario> patrocinador  = new ArrayList<>();
 
 }
 
