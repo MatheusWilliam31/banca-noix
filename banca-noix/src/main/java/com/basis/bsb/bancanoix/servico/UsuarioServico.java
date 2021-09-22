@@ -5,6 +5,7 @@ import com.basis.bsb.bancanoix.repositorio.UsuarioRepositorio;
 import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;
 import com.basis.bsb.bancanoix.servico.dto.UsuarioListagemDTO;
 import com.basis.bsb.bancanoix.servico.exceptions.ResourceNotFoundException;
+import com.basis.bsb.bancanoix.servico.filtro.UsuarioFiltro;
 import com.basis.bsb.bancanoix.servico.mappers.ListagemUsuarioMapper;
 import com.basis.bsb.bancanoix.servico.mappers.UsuarioMapper;
 import lombok.RequiredArgsConstructor;
