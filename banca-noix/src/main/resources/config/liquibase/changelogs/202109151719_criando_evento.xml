@@ -7,7 +7,7 @@
     <changeSet id="202109151710" author="maria.ribeiro">
         <createTable tableName="EVENTO">
             <column name="ID" type="int" autoIncrement="true" remarks="identificador tabela evento">
-                <constraints nullable="false" primaryKey="true"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="nome" type="varchar(50)" remarks="titulo do evento">
                 <constraints nullable="false"/>
@@ -18,7 +18,7 @@
             <column name="data" type="date" remarks="data do evento">
                 <constraints nullable="false"/>
             </column>
-            <column name="usuario_id" type="int" remarks="identificador de usuario">
+            <column name="patrocinador" type="int" remarks="identificador de patrocinador ">
                 <constraints nullable="false"/>
             </column>
             <column name="valor" type="money" remarks="custo do evento">
