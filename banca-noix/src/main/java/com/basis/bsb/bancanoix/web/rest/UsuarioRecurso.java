@@ -3,6 +3,7 @@ package com.basis.bsb.bancanoix.web.rest;
 import com.basis.bsb.bancanoix.servico.UsuarioServico;
 import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;
 import com.basis.bsb.bancanoix.servico.dto.UsuarioListagemDTO;
+import com.basis.bsb.bancanoix.servico.filtro.UsuarioFiltro;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +18,16 @@ import java.util.List;
 public class UsuarioRecurso {
 
     private final UsuarioServico servico;
+    private final UsuarioFiltro filtro;
 
     @GetMapping
     public ResponseEntity<List<UsuarioListagemDTO>> findAll(){
         return ResponseEntity.ok(servico.findAll());
+    }
+
+    @GetMapping("filtro")
+    public ResponseEntity<List<UsuarioDTO>> obterTodosFiltrado(){
+        return ResponseEntity.ok(servico.obterTodosFiltrado(filtro));
     }
 
     @GetMapping(value = "/{id}")
