@@ -1,7 +1,5 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
-import com.basis.bsb.bancanoix.dominio.Cargo;
-import com.basis.bsb.bancanoix.dominio.Cargo_;
 import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.dominio.Usuario_;
 import org.springframework.data.jpa.domain.Specification;

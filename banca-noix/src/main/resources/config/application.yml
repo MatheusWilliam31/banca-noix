@@ -22,4 +22,4 @@ spring:
 application:
   email:
     endereco-remetente: bancanoix@gmail.com
-    nome-remetente: bancanoix@gmail.com
+    nome-remetente: bancanoix
