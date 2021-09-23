@@ -4,9 +4,7 @@ import com.basis.bsb.bancanoix.dominio.Evento;
 import com.basis.bsb.bancanoix.repositorio.EventoRepositorio;
 import com.basis.bsb.bancanoix.servico.dto.EmailDTO;
 import com.basis.bsb.bancanoix.servico.dto.EventoDTO;
-import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;
 import com.basis.bsb.bancanoix.servico.exceptions.ResourceNotFoundException;
-import com.basis.bsb.bancanoix.servico.filtro.UsuarioFiltro;
 import com.basis.bsb.bancanoix.servico.mappers.EventoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -25,23 +23,19 @@ public class EventoServico {
     private final EventoMapper mapper;
     private final EmailServico servico;
 
-    @Scheduled(cron = "0 0 0 * * 5")
+    @Scheduled(cron = "0 10 16 * * 5")
     public void rotinaEmail(){
         EmailDTO emailDTO = new EmailDTO();
-        emailDTO.setDestinatario("exempl@gmail.com");
+        emailDTO.setDestinatario("mwsl.loose@gmail.com");
         emailDTO.setAssunto("promocao");
         emailDTO.setCorpo("promocao de fulano");
-        emailDTO.getCopias().add("exempl@gmail.com");
+        emailDTO.getCopias().add("mwsl.loose@gmail.com");
 
-        servico.enviarEmail(emailDTO);
+        servico.sendEmail(emailDTO);
     }
 
     public List<EventoDTO> findAll(){
         return mapper.toDto(repositorio.findAll());
-    }
-
-    public List<UsuarioDTO> obterTodosFiltrado(EventoFiltro filtro){
-        return mapper.toDto(repositorio.findAll(filtro.filter()));
     }
 
     public EventoDTO findById(Long id) {

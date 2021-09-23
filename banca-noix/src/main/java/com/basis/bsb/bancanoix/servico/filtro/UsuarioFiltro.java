@@ -51,9 +51,7 @@ public class UsuarioFiltro implements EntityFiltro{
             predicates.add(cb.like(root.get(Usuario_.cpf),"%" + cpf + "%"));
         }
 
-        if (cargo != null){
-            predicates.add(cb.like(root.join(Cargo_.NOME), "%" + cargo + "%"));
-        }
+
 
         return predicates;
 

@@ -1,9 +1,13 @@
 spring:
+  h2:
+    console:
+      enable: true
+      path: /h2
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:h2:men:sgp
     username: BANCA_NOIX_BD
-    password: BANCANOIX123
+    password:
+    driverClassName: org.h2.Driver
   liquibase:
     change-log: classpath:/config/liquibase/master.xml
   mail:
@@ -19,6 +23,7 @@ spring:
             enable: true
             required: true
           quitwait: false
+
 application:
   email:
     endereco-remetente: bancanoix@gmail.com
