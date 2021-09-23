@@ -44,7 +44,6 @@
     </changeSet>
 
     <changeSet id="202109161013" author="matheus.loose">
-
         <createTable tableName="REL_USUARIO_EVENTO">
             <column name="EVENTO_ID" type="INT" remarks="Coluna para PK E FK de evento">
                 <constraints primaryKey="true"/>
@@ -53,13 +52,17 @@
                 <constraints primaryKey="true"/>
             </column>
         </createTable>
+    </changeSet>
 
+    <changeSet id="202109161017" author="matheus.loose">
         <addForeignKeyConstraint baseTableName="REL_USUARIO_EVENTO"
                                  baseColumnNames="EVENTO_ID"
                                  constraintName="FK_REL_EVENTO"
                                  referencedTableName="EVENTO"
                                  referencedColumnNames="ID"/>
+    </changeSet>
 
+    <changeSet id="202109161020" author="matheus.loose">
         <addForeignKeyConstraint baseTableName="REL_USUARIO_EVENTO"
                                  baseColumnNames="PATROCINADOR_ID"
                                  constraintName="FK_REL_USUARIO"

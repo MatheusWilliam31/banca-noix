@@ -6,10 +6,6 @@ B
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-}
-Mbanca-noix/src/main/java/com/basis/bsb/bancanoix/web/rest/UsuarioRecurso.java,a/c/ace26b3daabb4497d33baab129e9a1af60bab4c8
-|
-Lbanca-noix/src/main/java/com/basis/bsb/bancanoix/web/rest/MotivoRecurso.java,9/2/925cbdc8bf26708c6db7bc535ae776a5a2cc9e12
 „
 Tbanca-noix/src/main/java/com/basis/bsb/bancanoix/servico/mappers/SituacaoMapper.java,f/8/f8e5643393dd5a1ae654715f3f017fc18c002a14
 s
@@ -36,9 +32,3 @@ Rbanca-noix/src/main/java/com/basis/bsb/bancanoix/servico/mappers/MotivoMapper.j
 Xbanca-noix/src/main/java/com/basis/bsb/bancanoix/servico/mappers/SelectMotivoMapper.java,1/6/16e7557abf69b1619cb24941548c6372fa7f6f95
 ƒ
 Sbanca-noix/src/main/java/com/basis/bsb/bancanoix/servico/mappers/UsuarioMapper.java,b/b/bb46f027b8b3d8fd749f9f2c7320b07512e3685c
-{
-Kbanca-noix/src/main/java/com/basis/bsb/bancanoix/servico/MotivoServico.java,4/2/4258ace7af83506c38a486c143efa3817783807f
-|
-Lbanca-noix/src/main/java/com/basis/bsb/bancanoix/servico/UsuarioServico.java,5/2/525a2a8e75173c0cbbb82e1860abc644edb41712
-|
-Lbanca-noix/src/main/java/com/basis/bsb/bancanoix/web/rest/EventoRecurso.java,9/c/9c3bd00227f10650869ffdef1b2af15cd03bfa03

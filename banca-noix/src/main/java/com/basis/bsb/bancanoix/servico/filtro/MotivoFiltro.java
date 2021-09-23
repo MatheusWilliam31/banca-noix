@@ -10,20 +10,19 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
-public class  MotivoFiltro implements EntityFIltro {
+public class MotivoFiltro implements EntityFiltro {
 
     private Long id;
     private String descricao;
     private String titulo;
 
-    @Override
     public Specification<Motivo> filter() {
         return (root, criteriaQuery, criteriaBuilder) ->
                 criteriaBuilder.and(getPredicates(root, criteriaQuery, criteriaBuilder).toArray(new Predicate[0]));
     }
-
 
     private List<Predicate> getPredicates
             (Root<Motivo> root,
@@ -34,15 +33,15 @@ public class  MotivoFiltro implements EntityFIltro {
         criteriaQuery.orderBy(criteriaBuilder.desc(root.get("id")));
 
 
-        if (id != null) {
+        if (Objects.nonNull(id)) {
             predicates.add(criteriaBuilder.equal(root.get(Motivo_.id), id));
         }
 
-        if (descricao != null) {
+        if (Objects.nonNull(descricao)) {
             predicates.add(criteriaBuilder.like(root.get(Motivo_.descricao), "%" + descricao + "%"));
         }
 
-        if (titulo != null) {
+        if (Objects.nonNull(titulo)) {
             predicates.add(criteriaBuilder.like(root.get(Motivo_.descricao), "%" + titulo + "%"));
         }
 

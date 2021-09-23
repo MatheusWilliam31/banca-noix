@@ -53,16 +53,3 @@ public class Evento implements Serializable {
     private List<Usuario> patrocinador  = new ArrayList<>();
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

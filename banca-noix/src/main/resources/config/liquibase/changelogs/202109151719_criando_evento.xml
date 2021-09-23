@@ -29,11 +29,17 @@
             </column>
         </createTable>
 
+    </changeSet>
+
+    <changeSet id="202109151713" author="maria.ribeiro">
         <addForeignKeyConstraint baseTableName="evento"
                                  baseColumnNames="situacao_id"
                                  constraintName="FK_EVENTO_SITUACAO"
                                  referencedTableName="situacao"
                                  referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="202109151715" author="maria.ribeiro">
 
         <addForeignKeyConstraint baseTableName="evento"
                                  baseColumnNames="motivo_id"
