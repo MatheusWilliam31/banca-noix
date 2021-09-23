@@ -23,6 +23,11 @@ public class EventoRecurso {
         return ResponseEntity.ok(servico.findAll());
     }
 
+    @GetMapping("filtro")
+    public ResponseEntity<List<EventoDTO>> obterTodosFiltrado(){
+        return ResponseEntity.ok(servico.obterTodosFiltrado(filtro));
+    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<EventoDTO> findById(@PathVariable Long id) {
         EventoDTO eventoDTO = servico.findById(id);
@@ -40,6 +45,5 @@ public class EventoRecurso {
     public ResponseEntity<EventoDTO> delete(@PathVariable Long id) {
         servico.delete(id);
         return ResponseEntity.noContent().build();
-
     }
 }
