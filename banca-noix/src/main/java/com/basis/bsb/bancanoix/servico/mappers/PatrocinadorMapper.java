@@ -6,5 +6,4 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring", uses = CargoMapper.class)
 public interface PatrocinadorMapper extends EntityMapper<PatrocinadorDTO, Usuario> {
-
 }
