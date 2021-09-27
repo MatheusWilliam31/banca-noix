@@ -25,10 +25,10 @@ public class EventoServico {
     @Scheduled(cron = "0 0 0 * * 5")
     public void rotinaEmail() {
         EmailDTO emailDTO = new EmailDTO();
-        emailDTO.setDestinatario("exempl@gmail.com");
+        emailDTO.setDestinatario("mwsl.loose@gmail.com");
         emailDTO.setAssunto("promocao");
         emailDTO.setCorpo("promocao de fulano");
-        emailDTO.getCopias().add("exempl@gmail.com");
+        emailDTO.getCopias().add("mwsl.loose@gmail.com");
 
         servico.enviarEmail(emailDTO);
     }
