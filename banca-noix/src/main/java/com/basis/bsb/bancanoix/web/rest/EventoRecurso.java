@@ -23,8 +23,6 @@ public class EventoRecurso {
         return ResponseEntity.ok(servico.findAll());
     }
 
-
-
     @GetMapping(value = "/{id}")
     public ResponseEntity<EventoDTO> findById(@PathVariable Long id) {
         EventoDTO eventoDTO = servico.findById(id);
