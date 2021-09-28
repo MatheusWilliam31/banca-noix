@@ -6,3 +6,21 @@ spring:
     password: BANCANOIX123
   liquibase:
     change-log: classpath:/config/liquibase/master.xml
+  mail:
+    hots: smtp.gmail.com
+    port: 587
+    username: exemplo@gmail.com
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          quitwait: false
+
+application:
+  email:
+    endereco-remetente: exemplo@gmail.com
+    nome-remetente: exemplo@gmail.com

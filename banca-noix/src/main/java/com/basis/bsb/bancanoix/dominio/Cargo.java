@@ -18,5 +18,5 @@ public class Cargo implements Serializable {
     private Long id;
 
     @Column(name = "titulo")
-    private String nome;
+    private String titulo;
 }

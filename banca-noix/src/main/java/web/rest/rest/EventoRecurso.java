@@ -26,6 +26,7 @@ public class EventoRecurso {
         return ResponseEntity.ok(eventoServico.filtrarData(filtro));
     }
 
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<EventoDTO> findById(@PathVariable Long id) {
         EventoDTO eventoDTO = eventoServico.findById(id);
@@ -37,6 +38,12 @@ public class EventoRecurso {
         dto = eventoServico.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<EventoDTO> delete(@PathVariable Long id) {
+        servico.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
 
