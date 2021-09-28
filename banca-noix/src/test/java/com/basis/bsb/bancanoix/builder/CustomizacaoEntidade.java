@@ -1,13 +1,6 @@
-package com.basis.bsb.bancanoix;
+package com.basis.bsb.bancanoix.builder;
 
-import liquibase.pro.packaged.E;
-import org.junit.jupiter.api.Test;
+public interface CustomizacaoEntidade<E>{
 
-import static org.junit.jupiter.api.Assertions.*;
-
-public class CustomizacaoEntidade{
-
-    @Test
-    void executar(E entidade) {
+    void executar(E entidade);
     }
-}

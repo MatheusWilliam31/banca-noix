@@ -26,7 +26,7 @@ public class MotivoServico {
 
 
     public MotivoDTO findById(Long id) {
-        return repositorio.findById(id).map(mapper::toDto).orElseThrow(() -> new ResourceNotFoundException("Motivo inexistente"));
+        return repositorio.findById(id).map(mapper::toDto).orElseThrow(ResourceNotFoundException::new);
     }
 
     public MotivoDTO save(MotivoDTO dto) {

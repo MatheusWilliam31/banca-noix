@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MotivoFiltro implements EntityFIltro {
+public class MotivoFiltro implements EntityFiltro {
 
     private Long id;
     private String descricao;

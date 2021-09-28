@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
     private Long id;
 
     @Column(name = "nome")
-    private String nome;
+    private String patrocinador;
 
     @Column(name = "dt_nascimento")
     private LocalDate dtNascimento;
