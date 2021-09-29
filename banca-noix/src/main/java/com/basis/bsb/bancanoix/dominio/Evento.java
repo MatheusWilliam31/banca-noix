@@ -49,7 +49,7 @@ public class Evento implements Serializable {
     @ManyToMany
     @JoinTable(name = "rel_usuario_evento",
             joinColumns = @JoinColumn(name ="evento_id"),
-            inverseJoinColumns = @JoinColumn(name = "patrocinador_id"))
+       inverseJoinColumns = @JoinColumn(name = "patrocinador_id"))
     private List<Usuario> patrocinador  = new ArrayList<>();
 
 }

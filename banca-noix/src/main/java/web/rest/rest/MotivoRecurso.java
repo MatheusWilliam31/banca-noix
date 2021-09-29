@@ -1,4 +1,4 @@
-package com.basis.bsb.bancanoix.web.rest;
+package web.rest.rest;
 
 import com.basis.bsb.bancanoix.servico.MotivoServico;
 import com.basis.bsb.bancanoix.servico.dto.MotivoDTO;
