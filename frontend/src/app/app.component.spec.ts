@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'showcase'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('showcase');
+    expect(app.topbarItemClick).toEqual('showcase');
   });
 
   it('should render title', () => {
