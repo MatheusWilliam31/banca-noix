@@ -1,5 +1,9 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
+<<<<<<< HEAD
+=======
+import com.basis.bsb.bancanoix.dominio.Cargo_;
+>>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
 import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.dominio.Usuario_;
 import org.springframework.data.jpa.domain.Specification;
@@ -12,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class UsuarioFiltro implements EntityFiltro{
+public class UsuarioFiltro implements EntityFiltro {
 
     private Long id;
     private String nome;
@@ -33,23 +37,29 @@ public class UsuarioFiltro implements EntityFiltro{
         List<Predicate> predicates = new ArrayList<>();
         cq.orderBy(cb.desc(root.get("id")));
 
-        if (id != null){
+        if (id != null) {
             predicates.add(cb.equal(root.get(Usuario_.id), id));
         }
 
-        if (nome != null){
-            predicates.add(cb.like(root.get(Usuario_.nome),"%" + nome + "%"));
+        if (nome != null) {
+            predicates.add(cb.like(root.get(Usuario_.nome), "%" + nome + "%"));
         }
 
-        if (email != null){
-            predicates.add(cb.like(root.get(Usuario_.email),"%" + email + "%"));
+        if (email != null) {
+            predicates.add(cb.like(root.get(Usuario_.email), "%" + email + "%"));
         }
 
-        if (cpf != null){
-            predicates.add(cb.like(root.get(Usuario_.cpf),"%" + cpf + "%"));
+        if (cpf != null) {
+            predicates.add(cb.like(root.get(Usuario_.cpf), "%" + cpf + "%"));
         }
 
+<<<<<<< HEAD
 
+=======
+        if (cargo != null) {
+            predicates.add(cb.like(root.join(Cargo_.NOME), "%" + cargo + "%"));
+        }
+>>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
 
         return predicates;
 
