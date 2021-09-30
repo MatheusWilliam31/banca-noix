@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
     private Long id;
 
     @Column(name = "nome")
-    private String nome;
+    private String patrocinador;
 
     @Column(name = "dt_nascimento")
     private LocalDate dtNascimento;
@@ -42,7 +42,6 @@ public class Usuario implements Serializable {
 
     @Column(name = "telefone")
     private String telefone;
-
 
     @Column(name = "st_atividade")
     private boolean active;

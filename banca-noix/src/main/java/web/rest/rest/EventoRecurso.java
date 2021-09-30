@@ -1,8 +1,10 @@
-package com.basis.bsb.bancanoix.web.rest;
+package web.rest.rest;
 
 
 import com.basis.bsb.bancanoix.servico.EventoServico;
+
 import com.basis.bsb.bancanoix.servico.dto.EventoDTO;
+import com.basis.bsb.bancanoix.servico.filtro.EventoFiltro;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +18,12 @@ import java.util.List;
 @RequestMapping("/api/eventos")
 public class EventoRecurso {
 
-    private final EventoServico servico;
+    private final EventoServico eventoServico;
 
-    @GetMapping
-    public ResponseEntity<List<EventoDTO>> findAll() {
-        return ResponseEntity.ok(servico.findAll());
+
+    @GetMapping("filtro")
+    ResponseEntity<List<EventoDTO>> filtrarData(EventoFiltro filtro) {
+        return ResponseEntity.ok(eventoServico.filtrarData(filtro));
     }
 
 <<<<<<< HEAD
@@ -29,13 +32,13 @@ public class EventoRecurso {
 >>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
     @GetMapping(value = "/{id}")
     public ResponseEntity<EventoDTO> findById(@PathVariable Long id) {
-        EventoDTO eventoDTO = servico.findById(id);
+        EventoDTO eventoDTO = eventoServico.findById(id);
         return ResponseEntity.ok().body(eventoDTO);
     }
 
     @PostMapping
-    public ResponseEntity<EventoDTO> create(@RequestBody EventoDTO dto) {
-        dto = servico.save(dto);
+    public ResponseEntity<EventoDTO> insert(@RequestBody EventoDTO dto) {
+        dto = eventoServico.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
@@ -46,3 +49,4 @@ public class EventoRecurso {
         return ResponseEntity.noContent().build();
     }
 }
+

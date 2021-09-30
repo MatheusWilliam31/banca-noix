@@ -22,7 +22,7 @@ public class UsuarioDTO implements Serializable {
 
     @NotBlank
     @Size(min = 3, max = 50)
-    private String nome;
+    private String patrocinador;
 
     @NotBlank
     @JsonFormat(pattern = "dd/MM/yyyy")

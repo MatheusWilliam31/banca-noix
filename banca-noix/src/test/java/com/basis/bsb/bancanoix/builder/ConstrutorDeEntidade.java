@@ -3,6 +3,7 @@ package com.basis.bsb.bancanoix.builder;
 import java.text.ParseException;
 import java.util.Collection;
 
+<<<<<<< HEAD
 /**
  * Classe base para criação de construtores de entidades para testes
  * automatizados.
@@ -24,10 +25,23 @@ public abstract class ConstrutorDeEntidade<E> {
         final E entidade = construirEntidade();
         if (isCustomizado()) {
             customizacao.executar(entidade);
+=======
+public class ConstrutorDeEntidade<E> {
+
+    private CustomizacaoEntidade customizacao;
+
+
+
+    public E construir() throws ParseException {
+        final E entidade = construirEntidade();
+        if (isCustomizado()) {
+            customizacao.executar((liquibase.pro.packaged.E) entidade);
+>>>>>>> 6dc05f18e8aeff36a71f5f2b7e66a276f21d34ce
         }
         return persistir(entidade);
     }
 
+<<<<<<< HEAD
     /**
      * Este método permite a customização dos atributos da entidade antes da
      * persistência
@@ -36,10 +50,15 @@ public abstract class ConstrutorDeEntidade<E> {
      * @return entidade customizada
      */
     public ConstrutorDeEntidade<E> customizar(CustomizacaoEntidade<E> customizacao) {
+=======
+
+    public ConstrutorDeEntidade<E> customizar(CustomizacaoEntidade customizacao) {
+>>>>>>> 6dc05f18e8aeff36a71f5f2b7e66a276f21d34ce
         this.customizacao = customizacao;
         return this;
     }
 
+<<<<<<< HEAD
     /**
      * Este método deve retornar uma instância da entidade inicializada com os
      * dados padrão para todos os testes.
@@ -80,10 +99,29 @@ public abstract class ConstrutorDeEntidade<E> {
      *
      * @return boolean
      */
+=======
+    protected E construirEntidade() throws ParseException {
+        return null;
+    }
+
+    protected E persistir(E entidade) {
+        return null;
+    }
+
+    protected Collection<E> obterTodos() {
+        return null;
+    }
+
+    protected E obterPorId(Long id) {
+        return null;
+    }
+
+>>>>>>> 6dc05f18e8aeff36a71f5f2b7e66a276f21d34ce
     public boolean isCustomizado() {
         return this.customizacao != null;
     }
 
+<<<<<<< HEAD
     /**
      * @param customizacao Atribui o valor do parâmetro no atributo customizacao
      */
@@ -91,3 +129,10 @@ public abstract class ConstrutorDeEntidade<E> {
         this.customizacao = customizacao;
     }
 }
+=======
+    public void setCustomizacao(CustomizacaoEntidade customizacao) {
+        this.customizacao = customizacao;
+    }
+}
+
+>>>>>>> 6dc05f18e8aeff36a71f5f2b7e66a276f21d34ce
