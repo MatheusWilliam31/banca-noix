@@ -1,13 +1,13 @@
 <component name="libraryTable">
-  <library name="Maven: org.springframework.boot:spring-boot-starter-mail:2.5.4">
+  <library name="Maven: org.opentest4j:opentest4j:1.2.0">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-mail/2.5.4/spring-boot-starter-mail-2.5.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-mail/2.5.4/spring-boot-starter-mail-2.5.4-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-mail/2.5.4/spring-boot-starter-mail-2.5.4-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
