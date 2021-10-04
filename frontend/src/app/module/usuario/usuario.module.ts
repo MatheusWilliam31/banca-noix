@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListarUsuariosComponent } from './components/listar-usuarios/listar-usuarios.component';
+import { ListarUsuariosComponent } from './components/usuario/listar-usuarios/listar-usuarios.component';
 import { SharedModule } from '../../shared/shared.module';
 import { UsuarioRoutingModule } from './usuario-routing.module';
 @NgModule({

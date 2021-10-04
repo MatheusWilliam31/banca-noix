@@ -1,3 +1,5 @@
+import { EventoModule } from './module/evento/evento.module';
+import { EventoRoutingModule } from './module/evento/evento-routing.module';
 import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
 import { DiarioErrosComponent } from './components/diario-erros/diario-erros.component';
 import { AppFooterComponent } from './components/footer/app.footer.component';
@@ -22,7 +24,7 @@ import { BlockUIModule } from 'ng-block-ui';
         AppComponent,
         AppTopbarComponent,
         AppFooterComponent,
-        DiarioErrosComponent,
+        DiarioErrosComponent
     ],
     imports: [
         BlockUIModule.forRoot({
@@ -41,7 +43,9 @@ import { BlockUIModule } from 'ng-block-ui';
         SecurityModule.forRoot(environment.auth),
         MenuModule,
         UsuarioModule,
-        UsuarioRoutingModule
+        UsuarioRoutingModule,
+        EventoRoutingModule,
+        EventoModule
     ],
 
     providers: [

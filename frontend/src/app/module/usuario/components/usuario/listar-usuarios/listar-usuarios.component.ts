@@ -1,4 +1,4 @@
-import { UsuarioService } from './../../../../../service/usuario/usuario.service';
+import { UsuarioService } from '../../../../../../service/usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,6 +12,7 @@ export class ListarUsuariosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
