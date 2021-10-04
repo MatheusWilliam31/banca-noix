@@ -1,17 +1,16 @@
+import { CadastrarEventoComponent } from './components/cadastrar-evento/cadastrar-evento.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ListarEventosComponent } from './components/listar-eventos/listar-eventos.component';
 import { NgModule } from '@angular/core';
 
-
 const routes: Routes = [
-  { path: 'evento', component: ListarEventosComponent, data: {breadcrumb: 'Evento'} }
+    {path: 'cadastrar', component: CadastrarEventoComponent, data: { breadcrumb: 'Evento'} }
 ];
 
 @NgModule({
-  imports: [
+  imports:[
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
 })
-
-export class EventoRoutingModule { }
+export class EventoRoutingModule {}
+    
