@@ -1,4 +1,4 @@
-import { ListarUsuariosComponent } from './components/listar-usuarios/listar-usuarios.component';
+import { ListarUsuariosComponent } from './components/usuario/listar-usuarios/listar-usuarios.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
