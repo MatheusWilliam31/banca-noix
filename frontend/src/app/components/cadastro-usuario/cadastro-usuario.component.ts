@@ -50,9 +50,10 @@ export class CadastroUsuarioComponent implements OnInit{
 
     public formatarDataformulario(): Date {
         let dataSplit: string[] = (this.form.get('dataNascimento').value as String).split
+        return new Date(`${dataSplit[2]}-${dataSplit[1]}-${dataSplit[0]}T00:00:00`);
     }
 
-  public submit():void {
+    public submit():void {
       if(this.form.valid){
           FuncoesUtil.messagemErro(this.messageService, MessageUtils);
           return;

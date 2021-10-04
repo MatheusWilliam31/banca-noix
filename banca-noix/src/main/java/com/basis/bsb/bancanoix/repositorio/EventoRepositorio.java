@@ -14,7 +14,6 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 @Repository
-<<<<<<< HEAD
 public interface EventoRepositorio extends JpaRepository<Evento, Long> {
 
     @Query( " select new basis.bsb.bancanoix.servico.dto.EventoRepositorio(" +
@@ -23,8 +22,3 @@ public interface EventoRepositorio extends JpaRepository<Evento, Long> {
 
     Optional<Evento> buscarEvento(@Param("data")LocalDate data);
 }
-=======
-public interface EventoRepositorio extends JpaRepository<Evento, Long>,
-        JpaSpecificationExecutor<Evento> {
-}
->>>>>>> 6dc05f18e8aeff36a71f5f2b7e66a276f21d34ce
