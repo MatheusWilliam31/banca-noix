@@ -11,7 +11,7 @@ import { UsuarioRoutingModule } from './usuario-routing.module';
   imports: [
     CommonModule,
     UsuarioRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class UsuarioModule { }

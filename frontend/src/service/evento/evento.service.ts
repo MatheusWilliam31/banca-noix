@@ -6,12 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EventoService {
+
   constructor( private http: HttpClient ) { }
     public listarEvento(): Observable <any> {
       return this.http.get('http://localhost:4200/listar-evento');
-
     }
-  
-
-
 }
