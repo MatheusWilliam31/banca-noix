@@ -8,7 +8,7 @@ export class CalendarioService {
   constructor(private http: HttpClient) { }
 
   getEvento() {
-    return this.http.get('http://localhost:4200/calendario')
+    return this.http.get(':/http/localhost:4200/calendario')
   }
 
   postEvento() {
