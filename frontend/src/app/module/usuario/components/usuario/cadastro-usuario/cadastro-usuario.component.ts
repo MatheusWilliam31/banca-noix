@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService, SelectItem } from 'primeng';
 import { Cargo } from 'src/app/model/cargo';
-import { CadastroUsuarioService } from 'src/app/service/cadastro-usuario.service';
-import { CargoService } from 'src/app/service/cargo.sevice';
+// import { CadastroUsuarioService } from 'src/app/service/cadastro-usuario.service';
+// import { CargoService } from 'src/app/service/cargo.sevice';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -14,7 +14,7 @@ import { CargoService } from 'src/app/service/cargo.sevice';
 export class CadastroUsuarioComponent implements OnInit{
 
     @Input() tituloInterno: string = '';
-    @Input() usuario: UsuarioApp = null;
+    // @Input() usuario: UsuarioApp = null;
 
   public form: FormGroup;
   public formBuilder: FormBuilder = new FormBuilder;
@@ -22,13 +22,13 @@ export class CadastroUsuarioComponent implements OnInit{
 
   constructor (
       private messageService: MessageService,
-      private usuarioSerice: CadastroUsuarioService,
-      private cargoService: CargoService
+    //   private usuarioSerice: CadastroUsuarioService,
+    //   private cargoService: CargoService
     ){    }
 
   ngOnInit(): void {
       this.criarFormulario();
-      this.obterCargos();
+    //   this.obterCargos();
   }
 
   public criarFormulario():void {
@@ -44,44 +44,30 @@ export class CadastroUsuarioComponent implements OnInit{
       })
   }
 
-  public obterCargos():void {
-      this.cargoService.listar().subscribe((cargos : SelectItem [] => this.cargos = Cargo()));
-}
+//   public obterCargos():void {
+//       this.cargoService.listar().subscribe((cargos : SelectItem [] => this.cargos = cargos);
+// }
 
-    public formatarDataformulario(): Date {
-        let dataSplit: string[] = (this.form.get('dataNascimento').value as String).split
-    }
+    // public formatarDataformulario(): Date {
+    //     let dataSplit: string[] = (this.form.get('dataNascimento').value as String).split
+    // }
 
-  public submit():void {
-      if(this.form.valid){
-          FuncoesUtil.messagemErro(this.messageService, MessageUtils);
-          return;
-      }
-      this.form.get('dataNascimento').setValue(this.formatarDataFormulario());
-      this.form.get('cargo').setValue({value:this.form.get('cargo').value})
-      this.usuarioSerice.criar(this.form.getRawValue()).subscribe{
-          (usuarioApp : UsuarioApp) => FuncoesUtil.messagemSucesso(this.messagemService,
-          () =>FuncoesUtil.messagemErro(this.messageService, MessageUtils))
-      }
-  }
+//   public submit():void {
+//       if(this.form.valid){
+//           FuncoesUtil.messagemErro(this.messageService, MessageUtils);
+//           return;
+//       }
+//       this.form.get('dataNascimento').setValue(this.formatarDataFormulario());
+//       this.form.get('cargo').setValue({value:this.form.get('cargo').value})
+//       this.usuarioSerice.criar(this.form.getRawValue()).subscribe{
+//           (usuarioApp : UsuarioApp) => FuncoesUtil.messagemSucesso(this.messagemService,
+//           () =>FuncoesUtil.messagemErro(this.messageService, MessageUtils))
+//       }
+//   }
 
   public inicializarCabecalho(): void {
       if(this.tituloInterno.length == 0){
           this.tituloInterno = "Cadastrar Usuário";
       }
   }
-
-  public preencherFormulario(): void{
-      if(this.usuario){
-          FormUtils.mudarValorCampoForm(this.form, 'id', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'cargo', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'cpf', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'dataNascimento', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'email', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'nome', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'status', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'telefone', this.usuario.id);
-      }
-  }
-
 }
