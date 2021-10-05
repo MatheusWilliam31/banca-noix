@@ -3,6 +3,7 @@
     <p-table #dt1 [value]= "customers1" selectionMode="single" [(selection)]= "selectedCustomer1" dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
         [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session">
         <ng-template pTemplate="header">
+            <a routerLinkActive="active" [routerLink]="['/cadastrar']">Cadastrar Usuário</a>
             <tr>
                 <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
                 <th pSortableColumn="country.name">Country <p-sortIcon field="country.name"></p-sortIcon></th>
