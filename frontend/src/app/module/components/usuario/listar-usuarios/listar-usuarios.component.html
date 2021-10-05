@@ -1,7 +1,6 @@
-
 <div class="listar-usuario">
     <h5>Session Storage</h5>
-    <p-table #dt1 [value]="customers1" selectionMode="single" [(selection)]="selectedCustomer1" dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
+    <p-table #dt1 [value]= "customers1" selectionMode="single" [(selection)]= "selectedCustomer1" dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
         [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session">
         <ng-template pTemplate="header">
             <tr>
