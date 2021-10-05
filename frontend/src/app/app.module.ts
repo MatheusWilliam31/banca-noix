@@ -1,3 +1,4 @@
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { EventoModule } from './module/evento/evento.module';
 import { EventoRoutingModule } from './module/evento/evento-routing.module';
 import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
@@ -16,18 +17,21 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotificationModule, BreadcrumbModule, MenuModule, ErrorStackModule } from '@nuvem/primeng-components';
 import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-base';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 
 import { BlockUIModule } from 'ng-block-ui';
 
- 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+    dayGridPlugin,
+    interactionPlugin
+  ]);
 @NgModule({
     declarations: [
         AppComponent,
         AppTopbarComponent,
         AppFooterComponent,
         DiarioErrosComponent,
-    
-    
     ],
     imports: [
         BlockUIModule.forRoot({
@@ -49,6 +53,7 @@ import { BlockUIModule } from 'ng-block-ui';
         UsuarioRoutingModule,
         EventoModule,
         EventoRoutingModule,
+        FullCalendarModule
         
     
     ],
