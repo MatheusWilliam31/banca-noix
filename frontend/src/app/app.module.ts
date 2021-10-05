@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 
+=======
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { EventoModule } from './module/evento/evento.module';
+import { EventoRoutingModule } from './module/evento/evento-routing.module';
+import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
+>>>>>>> 2173746dddf67f0361097e76abd19ea9b7abf5c0
 import { DiarioErrosComponent } from './components/diario-erros/diario-erros.component';
 import { AppFooterComponent } from './components/footer/app.footer.component';
 import { AppTopbarComponent } from './components/topbar/app.topbar.component';
@@ -15,7 +22,10 @@ import { PageNotificationModule, BreadcrumbModule, MenuModule, ErrorStackModule 
 import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-base';
 import { BlockUIModule } from 'ng-block-ui';
 
- 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+    dayGridPlugin,
+    interactionPlugin
+  ]);
 @NgModule({
     declarations: [
         AppComponent,
