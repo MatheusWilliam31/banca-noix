@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListarEventosComponent } from './listar-eventos.component';
+import { CadastrarEventoComponent } from './cadastrar-evento.component';
 
-describe('ListarEventosComponent', () => {
-  let component: ListarEventosComponent;
-  let fixture: ComponentFixture<ListarEventosComponent>;
+describe('CadastrarEventoComponent', () => {
+  let component: CadastrarEventoComponent;
+  let fixture: ComponentFixture<CadastrarEventoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListarEventosComponent ]
+      declarations: [ CadastrarEventoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListarEventosComponent);
+    fixture = TestBed.createComponent(CadastrarEventoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,6 +1,7 @@
 import { UsuarioService } from '../../../../../../service/usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-listar-usuarios',
   templateUrl: './listar-usuarios.component.html',

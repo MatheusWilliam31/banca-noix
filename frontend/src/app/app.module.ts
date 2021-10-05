@@ -19,12 +19,15 @@ import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-ba
 
 import { BlockUIModule } from 'ng-block-ui';
 
+ 
 @NgModule({
     declarations: [
         AppComponent,
         AppTopbarComponent,
         AppFooterComponent,
-        DiarioErrosComponent
+        DiarioErrosComponent,
+    
+    
     ],
     imports: [
         BlockUIModule.forRoot({
@@ -41,7 +44,17 @@ import { BlockUIModule } from 'ng-block-ui';
         ErrorModule,
         VersionTagModule,
         SecurityModule.forRoot(environment.auth),
+<<<<<<< HEAD
         MenuModule
+=======
+        MenuModule,
+        UsuarioModule,
+        UsuarioRoutingModule,
+        EventoModule,
+        EventoRoutingModule,
+        
+    
+>>>>>>> b3af717f94a0aab7b2981a33d4b70bda470b628f
     ],
 
     providers: [
