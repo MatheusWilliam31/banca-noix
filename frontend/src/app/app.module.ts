@@ -26,7 +26,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     dayGridPlugin,
     interactionPlugin
   ]);
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -52,9 +51,11 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         MenuModule,
         UsuarioModule,
         UsuarioRoutingModule,
-        EventoRoutingModule,
         EventoModule,
+        EventoRoutingModule,
         FullCalendarModule
+        
+    
     ],
 
     providers: [
