@@ -1,13 +1,22 @@
-@import './_variables';
-@import '../overrides/layout_variables';
-@import '../_mixins';
-@import '../_fonts';
-@import './_utils.scss';
-@import './_splash.scss';
-@import './_dashboard.scss';
-@import './_login.scss';
-@import './_exception.scss';
-@import './_landing.scss';
-@import './_main.scss';
-@import './_compact.scss';
-@import '../overrides/layout_styles';
+@use '../all-theme';
+@use '../../core';
+@use '../palette';
+@use '../theming';
+
+
+// Include non-theme styles for core.
+@include core.core();
+
+// Define a theme.
+$primary: theming.define-palette(palette.$purple-palette, 700, 500, 800);
+$accent:  theming.define-palette(palette.$green-palette, A200, A100, A400);
+
+$theme: theming.define-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent
+  )
+));
+
+// Include all theme styles for the components.
+@include all-theme.all-component-themes($theme);

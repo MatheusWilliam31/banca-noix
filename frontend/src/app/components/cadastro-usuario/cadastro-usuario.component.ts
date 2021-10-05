@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService, SelectItem } from 'primeng';
-import { Cargo } from 'src/app/model/cargo';
-import { CadastroUsuarioService } from 'src/app/service/cadastro-usuario.service';
-import { CargoService } from 'src/app/service/cargo.sevice';
+import { Usuario } from 'src/app/model/usuario/usuario';
+import { CargoService } from 'src/service/cargo/cargo.service';
+import { CadastroUsuarioService } from 'src/service/evento/cadastro-usuario.service';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -14,75 +14,65 @@ import { CargoService } from 'src/app/service/cargo.sevice';
 export class CadastroUsuarioComponent implements OnInit{
 
     @Input() tituloInterno: string = '';
-    @Input() usuario: UsuarioApp = null;
+    @Input() usuario: Usuario = null;
 
-  public form: FormGroup;
-  public formBuilder: FormBuilder = new FormBuilder;
-  public cargos: SelectItem[] = [];
+    private submitted = false;
+    private form: FormGroup;
+    private formBuilder: FormBuilder = new FormBuilder;
+    private cargos: SelectItem[] = [];
 
-  constructor (
-      private messageService: MessageService,
-      private usuarioSerice: CadastroUsuarioService,
-      private cargoService: CargoService
-    ){    }
+    constructor (
+        private messageService: MessageService,
+        private usuarioSerice: CadastroUsuarioService,
+        private cargoService: CargoService
+        ){    }
 
-  ngOnInit(): void {
-      this.criarFormulario();
-      this.obterCargos();
-  }
+    ngOnInit(): void {
+        this.criarFormulario();
+        this.obterCargos();
+    }
 
-  public criarFormulario():void {
-      this.form = this.formBuilder.group({
-          id: [null],
-          nome: ['', Validators.required],
-          cpf: ['', Validators.required],
-          email: ['', Validators.required],
-          cargo: [null, Validators.required],
-          dataNascimento: ['', Validators.required],
-          status: [true, Validators.required],
-          telefone: ['']
-      })
-  }
+    public criarFormulario():void {
+        this.form = this.formBuilder.group({
+            id: [null],
+            nome: ['', Validators.required],
+            cpf: ['', Validators.required],
+            email: ['', Validators.required],
+            cargo: [null, Validators.required],
+            dataNascimento: ['', Validators.required],
+            status: [true, Validators.required],
+            telefone: ['']
+        })
+    }
 
-  public obterCargos():void {
-      this.cargoService.listar().subscribe((cargos : SelectItem [] => this.cargos = Cargo()));
-}
+
 
     public formatarDataformulario(): Date {
-        let dataSplit: string[] = (this.form.get('dataNascimento').value as String).split
+        let dataSplit: string[] = (this.form.get('dataNascimento').value as string).split("/");
         return new Date(`${dataSplit[2]}-${dataSplit[1]}-${dataSplit[0]}T00:00:00`);
     }
 
-    public submit():void {
-      if(this.form.valid){
-          FuncoesUtil.messagemErro(this.messageService, MessageUtils);
-          return;
-      }
-      this.form.get('dataNascimento').setValue(this.formatarDataFormulario());
-      this.form.get('cargo').setValue({value:this.form.get('cargo').value})
-      this.usuarioSerice.criar(this.form.getRawValue()).subscribe{
-          (usuarioApp : UsuarioApp) => FuncoesUtil.messagemSucesso(this.messagemService,
-          () =>FuncoesUtil.messagemErro(this.messageService, MessageUtils))
-      }
-  }
+    public inicializarCabecalho(): void {
+        if(this.tituloInterno.length == 0){
+            this.tituloInterno = "Cadastrar Usuário";
+        }
+    }
 
-  public inicializarCabecalho(): void {
-      if(this.tituloInterno.length == 0){
-          this.tituloInterno = "Cadastrar Usuário";
-      }
-  }
+//    public submit():void {
+//      if(this.form.valid){
+//          FuncoesUtil.messagemErro(this.messageService, MessageUtils);
+//          return;
+//      }
+//      this.form.get('dataNascimento').setValue(this.formatarDataformulario());
+//      this.form.get('cargo').setValue({value:this.form.get('cargo').value})
+//      this.usuarioSerice.criar(this.form.getRawValue()).subscribe{
+//          (usuario : Usuario) => FuncoesUtil.messagemSucesso(this.messagemService,
+//          () =>FuncoesUtil.messagemErro(this.messageService, MessageUtils))
+//      }
+//  }
 
-  public preencherFormulario(): void{
-      if(this.usuario){
-          FormUtils.mudarValorCampoForm(this.form, 'id', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'cargo', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'cpf', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'dataNascimento', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'email', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'nome', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'status', this.usuario.id);
-          FormUtils.mudarValorCampoForm(this.form, 'telefone', this.usuario.id);
-      }
-  }
-
+    onCancel(){
+        this.submitted = false;
+        this.form.reset();
+    }
 }

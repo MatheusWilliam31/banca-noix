@@ -8,11 +8,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CargoService { 
-    public readonly BASE_URL: string = '/cargos';
+    public readonly BASE_URL: string = '/cargo';
 
     constructor(private http: HttpClient){}
 
-    public listar(): Observable<SelectItem[]> {
+    public listar(): Observable <SelectItem[]> {
         return this.http.get<SelectItem[]>(`${environment.apiUrl}${this.BASE_URL}`);
     }
 }
