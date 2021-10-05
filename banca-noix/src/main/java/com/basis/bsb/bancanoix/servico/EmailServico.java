@@ -2,7 +2,6 @@ package com.basis.bsb.bancanoix.servico;
 
 import com.basis.bsb.bancanoix.config.ApplicationProperties;
 import com.basis.bsb.bancanoix.servico.dto.EmailDTO;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -21,7 +20,7 @@ public class EmailServico {
     private final ApplicationProperties applicationProperties;
 
     @SneakyThrows
-    public void enviarEmail(EmailDTO emailDTO){
+    public void sendEmail(EmailDTO emailDTO){
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mime = new MimeMessageHelper(mimeMessage);
 

@@ -9,10 +9,5 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CargoMapper extends EntityMapper<SelectDTO, Cargo>{
 
-    @Mapping(source = "id", target = "value")
-    @Mapping(source = "nome", target = "label")
-    SelectDTO toDto(Cargo cargo);
 
-    @InheritInverseConfiguration
-    Cargo toEntity(SelectDTO selectDTO);
 }

@@ -1,7 +1,6 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
 import com.basis.bsb.bancanoix.dominio.Cargo;
-
 import com.basis.bsb.bancanoix.dominio.Cargo_;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -36,11 +35,10 @@ public class CargoFiltro implements EntityFiltro {
         }
 
         if(titulo != null){
-            predicates.add(cb.like(root.get(Cargo_.nome), "%" + titulo + "%"));
+            predicates.add(cb.like(root.get(Cargo_.titulo), "%" + titulo + "%"));
         }
 
         return predicates;
 
     }
 }
-

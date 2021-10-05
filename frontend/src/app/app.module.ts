@@ -1,11 +1,14 @@
+<<<<<<< HEAD
+
+=======
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { EventoModule } from './module/evento/evento.module';
 import { EventoRoutingModule } from './module/evento/evento-routing.module';
 import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
+>>>>>>> 2173746dddf67f0361097e76abd19ea9b7abf5c0
 import { DiarioErrosComponent } from './components/diario-erros/diario-erros.component';
 import { AppFooterComponent } from './components/footer/app.footer.component';
 import { AppTopbarComponent } from './components/topbar/app.topbar.component';
-import { UsuarioModule } from './module/usuario/usuario.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -17,9 +20,6 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotificationModule, BreadcrumbModule, MenuModule, ErrorStackModule } from '@nuvem/primeng-components';
 import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-base';
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
-
 import { BlockUIModule } from 'ng-block-ui';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -48,14 +48,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         ErrorModule,
         VersionTagModule,
         SecurityModule.forRoot(environment.auth),
-        MenuModule,
-        UsuarioModule,
-        UsuarioRoutingModule,
-        EventoModule,
-        EventoRoutingModule,
-        FullCalendarModule
-        
-    
+        MenuModule
     ],
 
     providers: [

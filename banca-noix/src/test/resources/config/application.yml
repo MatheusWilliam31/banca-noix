@@ -1,24 +1,20 @@
 spring:
-  application:
-    name: cancanoix
-  profiles:
-    active: test
   h2:
     console:
-      enabled: true
+      enable: true
       path: /h2
   datasource:
-    url: jdbc:h2:mem:bnxx
-    username: sa
+    url: jdbc:h2:men:sgp
+    username: BANCA_NOIX_BD
     password:
     driverClassName: org.h2.Driver
   liquibase:
     change-log: classpath:/config/liquibase/master.xml
   mail:
-    host: teste.gmail.com
+    hots: smtp.gmail.com
     port: 587
-    username:
-    password:
+    username: bancanoix@gmail.com
+    password: bancanoix123
     properties:
       mail:
         smtp:
@@ -27,3 +23,8 @@ spring:
             enable: true
             required: true
           quitwait: false
+
+application:
+  email:
+    endereco-remetente: bancanoix@gmail.com
+    nome-remetente: bancanoix@gmail.com
