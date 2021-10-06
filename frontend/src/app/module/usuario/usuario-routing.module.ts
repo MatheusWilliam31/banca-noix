@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { ListarUsuariosComponent } from './components/listar-usuarios/listar-usuarios.component';
-=======
-import { ListarUsuariosComponent } from '../components/usuario/listar-usuarios/listar-usuarios.component';
->>>>>>> e76ddb4e09dff90aa37a2359890b0a3288993afe
+import { ListarUsuariosComponent } from './components/usuario/listar-usuarios/listar-usuarios.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 
