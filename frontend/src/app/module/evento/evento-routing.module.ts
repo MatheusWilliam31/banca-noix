@@ -1,4 +1,4 @@
-import { FullCalendarComponent } from './components/full-calendar/full-calendar.component';
+import { FullCalendarComponent } from './components/evento/full-calendar/full-calendar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
