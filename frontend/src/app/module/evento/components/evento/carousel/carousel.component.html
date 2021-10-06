@@ -1,0 +1,21 @@
+<p-carousel [value]="evento" [numVisible]="4" [numScroll]="3" [circular]="false"[responsiveOptions]="responsiveOptions">
+    <p-header>
+        <h3>Listar Eventos</h3>
+    </p-header>
+    <ng-template let-event pTemplate="item">
+        <div class="event-details">
+            <div class="p-grid p-nogutter">
+                <div class="p-col-12 car-data">
+                    <div class="car-title">{{event.nome}}</div>
+                    <div class="car-subtitle">{{event.data}} | {{event.situacao}}</div>
+                    <div class="car-subtitle">{{event.patrocinador}} | {{event.valor}}</div>
+                    <div class="car-buttons">
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-search"></button>
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-star"></button>
+                        <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

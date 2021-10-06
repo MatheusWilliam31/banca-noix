@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageNotificationModule, BreadcrumbModule, MenuModule, ErrorStackModule } from '@nuvem/primeng-components';
 import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-base';
 import { BlockUIModule } from 'ng-block-ui';
+import { CarouselModule } from 'primeng';
+import { CarouselComponent } from './module/evento/components/evento/carousel/carousel.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +28,7 @@ import { BlockUIModule } from 'ng-block-ui';
         AppTopbarComponent,
         AppFooterComponent,
         DiarioErrosComponent,
+     
     ],
     imports: [
         BlockUIModule.forRoot({
@@ -48,7 +51,8 @@ import { BlockUIModule } from 'ng-block-ui';
         EventoModule,
         EventoRoutingModule,
         FullCalendarModule,
-        MenuModule
+        MenuModule,
+        
     ],
 
     providers: [
