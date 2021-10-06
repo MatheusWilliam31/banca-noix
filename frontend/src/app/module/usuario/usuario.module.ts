@@ -3,10 +3,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsuarioRoutingModule } from './usuario-routing.module';
+import { CadastroUsuarioComponent } from './components/cadastro-usuario/cadastro-usuario.component';
 
 @NgModule({
   declarations: [
-    ListarUsuariosComponent
+    ListarUsuariosComponent,
+    CadastroUsuarioComponent
   ],
   imports: [
     CommonModule,
