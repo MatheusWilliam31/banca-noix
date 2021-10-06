@@ -45,9 +45,11 @@ import { BlockUIModule } from 'ng-block-ui';
         MenuModule,
         UsuarioModule,
         UsuarioRoutingModule,
-        EventoRoutingModule,
         EventoModule,
+        EventoRoutingModule,
         FullCalendarModule
+        
+    
     ],
 
     providers: [

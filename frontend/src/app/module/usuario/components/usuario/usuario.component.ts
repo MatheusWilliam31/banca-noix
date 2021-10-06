@@ -1,6 +1,6 @@
 import { Usuario } from 'src/app/model/usuario';
-import { UsuarioService } from './../../../../../service/usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/service/usuario/usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -8,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit{
-
   selectedUsuario?: Usuario;
-
   usuario: Usuario[] = [];
   getUsuario: any;
 
