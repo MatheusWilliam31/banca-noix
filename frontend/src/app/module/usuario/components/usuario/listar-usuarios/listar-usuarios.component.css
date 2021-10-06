@@ -1,0 +1,26 @@
+/* fundo do card usuario */
+::ng-deep .layout-container .layout-main .layout-content {
+    background-color:rgb(88, 88, 88);
+}
+/* div no customers found */
+::ng-deep body .ui-table .ui-table-tbody > tr:nth-child(odd) {
+    background-color: rgb(173, 173, 173);
+}
+
+/* widget de paginação */
+::ng-deep body .ui-paginator{
+    background-color: black;
+}
+/* evento botao-clicado */
+::ng-deep body .ui-table .ui-sortable-column.ui-state-highlight {
+    background-color: #000000;
+}
+/* tabela central */
+::ng-deep body .ui-table .ui-table-thead > tr > th, body .ui-table .ui-table-tfoot > tr > td{
+    background-color: black;
+    color: white
+}
+/* botao  paginator */
+::ng-deep body .ui-paginator .ui-paginator-pages a.ui-state-active {
+    background-color:#46be16d2 ;
+}

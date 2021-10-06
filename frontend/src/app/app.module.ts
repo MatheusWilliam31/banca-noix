@@ -1,7 +1,7 @@
+import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { EventoModule } from './module/evento/evento.module';
 import { EventoRoutingModule } from './module/evento/evento-routing.module';
-import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
 import { DiarioErrosComponent } from './components/diario-erros/diario-erros.component';
 import { AppFooterComponent } from './components/footer/app.footer.component';
 import { AppTopbarComponent } from './components/topbar/app.topbar.component';
