@@ -1,14 +1,12 @@
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
-import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService, SelectItem } from 'primeng';
-import { Cargo } from 'src/app/model/cargo';
 // import { CadastroUsuarioService } from 'src/app/service/cadastro-usuario.service';
 // import { CargoService } from 'src/app/service/cargo.sevice';
 
 @Component({
   selector: 'app-cadastro-usuario',
   templateUrl: './cadastro-usuario.component.html',
-  styleUrls: ['./cadastro-usuario.component.css']
 })
 
 export class CadastroUsuarioComponent implements OnInit{

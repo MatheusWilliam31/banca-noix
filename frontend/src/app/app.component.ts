@@ -35,7 +35,7 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     viewMaxWidth = 1024;
 
     viewMinWidth = 640;
-
+    
     @ViewChild('layoutContainer', { static: true }) layourContainerViewChild: ElementRef;
 
     @ViewChild('scrollPanel', { static: true }) layoutMenuScrollerViewChild: ScrollPanel;
@@ -53,10 +53,8 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
             { label: 'Usuario', icon: 'person', routerLink: ['usuario'], items:[
                 { label: 'Cadastrar', icon: 'person', routerLink: ['usuario/cadastrar']}
             ] },
-            { label: 'Evento', icon: 'dashboard', routerLink: ['/'], items:[
+            { label: 'Eventos', icon: 'dashboard', routerLink: ['calendario'], items: [
                 { label: 'Cadastrar', icon: 'dashboard', routerLink: ['cadastrar-evento']},
-                { label: 'Listar', icon: 'list', routerLink: ['listar-evento']},
-                { label: 'Atualizar', icon: 'dashboard', routerLink: ['atualizar-evento']},
 
             ] }, 
                 

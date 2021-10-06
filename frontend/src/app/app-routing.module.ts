@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginSuccessComponent } from '@nuvem/angular-base';
 
 const routes: Routes = [
-  { path: 'diario-erros', component: DiarioErrosComponent, data: { breadcrumb: 'Diário de Erros' } },
+  { path: 'diario-erros', component: DiarioErrosComponent },
   { path: 'login-success', component: LoginSuccessComponent },
   { path: '', loadChildren: './module/usuario/usuario.module#UsuarioModule'},
   { path: '', loadChildren: './module/evento/evento.module#EventoModule'}
