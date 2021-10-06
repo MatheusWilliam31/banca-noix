@@ -1,6 +1,7 @@
 package com.basis.bsb.bancanoix.servico;
 
 import com.basis.bsb.bancanoix.dominio.Evento;
+import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.repositorio.EventoRepositorio;
 import com.basis.bsb.bancanoix.servico.dto.EmailDTO;
 import com.basis.bsb.bancanoix.servico.dto.EventoDTO;
@@ -13,6 +14,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +31,19 @@ public class EventoServico {
         return mapper.toDto(repositorio.findAll(filtro.filter()));
     private final EmailServico servico;
 
+<<<<<<< HEAD
+    @Scheduled(cron = "0 01 8 * * 5")
+    public void rotinaEmail(){
+        Optional<Evento> eventoOpcional = repositorio.buscarEvento(LocalDate.now());
+        if (eventoOpcional.isPresent()){
+            List<String> copias = new ArrayList<>();
+            EmailDTO emailDTO = new EmailDTO();
+            Evento eventoDoDia = eventoOpcional.get();
+            emailDTO.setDestinatario("mwsl.loose@gmail.com");
+            emailDTO.setAssunto("promocao");
+            emailDTO.setCorpo("Novo evento, promocao de fulano" + eventoDoDia.getMotivo().getTitulo()+ "esse evento vai ser patrocinado por " +
+            eventoDoDia.getPatrocinador().toArray()[0] + " e por mais " + (eventoDoDia.getPatrocinador().toArray().length -1));
+=======
     @Scheduled(cron = "0 0 0 * * 5")
     public void rotinaEmail() {
         EmailDTO emailDTO = new EmailDTO();
@@ -35,8 +51,17 @@ public class EventoServico {
         emailDTO.setAssunto("promocao");
         emailDTO.setCorpo("promocao de fulano");
         emailDTO.getCopias().add("mwsl.loose@gmail.com");
+>>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
 
-        servico.enviarEmail(emailDTO);
+            for (Usuario user : eventoDoDia.getPatrocinador()) {
+                copias.add(user.getEmail());
+
+            }
+
+            emailDTO.setCopias(copias);
+            servico.sendEmail(emailDTO);
+
+        }
     }
 
     public List<EventoDTO> findAll() {

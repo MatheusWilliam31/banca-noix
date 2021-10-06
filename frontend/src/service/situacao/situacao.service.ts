@@ -1,14 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { SelectItem } from 'primeng';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class SituacaoService { 
     public readonly BASE_URL: string = '/situacao';
@@ -19,4 +17,3 @@ export class SituacaoService {
         return this.http.get<SelectItem[]>(`${environment.apiUrl}${this.BASE_URL}`);
     }
 }
-

@@ -1,6 +1,6 @@
+import { EventoService } from './../../../../../../service/evento/evento.service';
 import { Component, OnInit } from '@angular/core';
 import { Evento } from 'src/app/model/Evento';
-import { EventoService } from 'src/app/service/evento/evento.service';
 
 @Component({
   selector: 'app-listar-evento',

@@ -9,8 +9,8 @@ spring:
   mail:
     hots: smtp.gmail.com
     port: 587
-    username: exemplo@gmail.com
-    password:
+    username: bancanoix@gmail.com
+    password: bancanoix123
     properties:
       mail:
         smtp:
@@ -19,8 +19,7 @@ spring:
             enable: true
             required: true
           quitwait: false
-
 application:
   email:
-    endereco-remetente: exemplo@gmail.com
-    nome-remetente: exemplo@gmail.com
+    endereco-remetente: bancanoix@gmail.com
+    nome-remetente: bancanoix

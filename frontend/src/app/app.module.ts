@@ -1,11 +1,13 @@
-import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
+import { FullCalendarComponent } from './module/evento/components/evento/full-calendar/full-calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { EventoModule } from './module/evento/evento.module';
 import { EventoRoutingModule } from './module/evento/evento-routing.module';
+import { EventoModule } from './module/evento/evento.module';
+import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
+import { UsuarioModule } from './module/usuario/usuario.module';
+
 import { DiarioErrosComponent } from './components/diario-erros/diario-erros.component';
 import { AppFooterComponent } from './components/footer/app.footer.component';
 import { AppTopbarComponent } from './components/topbar/app.topbar.component';
-import { UsuarioModule } from './module/usuario/usuario.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -17,7 +19,6 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotificationModule, BreadcrumbModule, MenuModule, ErrorStackModule } from '@nuvem/primeng-components';
 import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-base';
-
 import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
@@ -47,9 +48,7 @@ import { BlockUIModule } from 'ng-block-ui';
         UsuarioRoutingModule,
         EventoModule,
         EventoRoutingModule,
-        FullCalendarModule
-        
-    
+        FullCalendarModule,
     ],
 
     providers: [

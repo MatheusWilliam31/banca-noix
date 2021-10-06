@@ -1,6 +1,6 @@
 export class Cargo {
 
-private id: number;
-private titulo: String;
+    private id: number;
+    private titulo: String;
 
 }

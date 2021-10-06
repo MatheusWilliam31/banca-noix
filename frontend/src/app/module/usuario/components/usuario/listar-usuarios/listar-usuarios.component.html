@@ -1,13 +1,7 @@
 <div class="listar-usuario">
-<<<<<<< HEAD:frontend/src/app/module/components/usuario/listar-usuarios/listar-usuarios.component.html
     <h1><span> Lista de Usuários</span></h1>
     <p-table #dt1 [value]="customers1" selectionMode="single" [(selection)]="selectedCustomer1" dataKey="id" class="container" styleClass="p-datatable-customers" responsiveLayout="scroll"
         [rows]="10" stateStorage="session" stateKey="statedemo-session">
-=======
-    <h5>Session Storage</h5>
-    <p-table #dt1 [value]= "customers1" selectionMode="single" [(selection)]= "selectedCustomer1" dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
-        [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session">
->>>>>>> e76ddb4e09dff90aa37a2359890b0a3288993afe:frontend/src/app/module/usuario/components/usuario/listar-usuarios/listar-usuarios.component.html
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>

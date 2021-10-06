@@ -26,7 +26,10 @@ public class EventoRecurso {
         return ResponseEntity.ok(eventoServico.filtrarData(filtro));
     }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
     @GetMapping(value = "/{id}")
     public ResponseEntity<EventoDTO> findById(@PathVariable Long id) {
         EventoDTO eventoDTO = eventoServico.findById(id);
