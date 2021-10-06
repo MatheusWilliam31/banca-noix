@@ -1,9 +1,9 @@
-import { CadastrarEventoComponent } from './components/cadastrar-evento/cadastrar-evento.component';
+import { FullCalendarComponent } from './components/full-calendar/full-calendar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-    {path: 'cadastrar', component: CadastrarEventoComponent, data: { breadcrumb: 'Evento'} }
+    { path: 'calendario', component: FullCalendarComponent, data: { breadcrumb: 'Calendario'}}
 ];
 
 @NgModule({

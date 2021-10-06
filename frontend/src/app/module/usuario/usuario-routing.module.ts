@@ -1,4 +1,3 @@
-import { CadastrarEventoComponent } from './../evento/components/cadastrar-evento/cadastrar-evento.component';
 import { ListarUsuariosComponent } from './components/usuario/listar-usuarios/listar-usuarios.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule, Component } from '@angular/core';

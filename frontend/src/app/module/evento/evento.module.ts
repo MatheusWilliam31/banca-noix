@@ -1,19 +1,28 @@
+import { FullCalendarComponent } from './components/full-calendar/full-calendar.component';
+import  interactionPlugin  from '@fullcalendar/interaction';
+import  dayGridPlugin  from '@fullcalendar/daygrid';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventoRoutingModule } from './evento-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CadastrarEventoComponent } from './components/cadastrar-evento/cadastrar-evento.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
 
 @NgModule({
   declarations: [
-    CadastrarEventoComponent,
+    FullCalendarComponent,
   ],
   imports: [
     CommonModule,
     EventoRoutingModule,
-    SharedModule
+    SharedModule,
+    FullCalendarModule
     
-  ]
+  ],
+  providers: []
 })
 export class EventoModule { }

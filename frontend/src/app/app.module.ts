@@ -17,15 +17,8 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotificationModule, BreadcrumbModule, MenuModule, ErrorStackModule } from '@nuvem/primeng-components';
 import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-base';
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
-import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 
 import { BlockUIModule } from 'ng-block-ui';
-
-FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-    dayGridPlugin,
-    interactionPlugin
-  ]);
 
 @NgModule({
     declarations: [
