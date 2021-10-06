@@ -1,43 +1,34 @@
-<<<<<<< HEAD
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
-import { MessageService, SelectItem } from 'primeng';
-=======
-import { Component, Input, OnInit } from '@angular/core';
-import { EmailValidator, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService, SelectItem } from 'primeng';
 import { Cargo } from 'src/app/model/cargo';
->>>>>>> 801d201c4ab3496d6622a64aa20d9068e7082577
-// import { CadastroUsuarioService } from 'src/app/service/cadastro-usuario.service';
-// import { CargoService } from 'src/app/service/cargo.sevice';
+import { CargoService } from 'src/service/cargo/cargo.service';
+import { UsuarioService } from 'src/service/usuario/usuario.service';
+
 
 @Component({
   selector: 'app-cadastro-usuario',
   templateUrl: './cadastro-usuario.component.html',
-<<<<<<< HEAD
-=======
   styleUrls: ['./cadastro-usuario.component.css']
->>>>>>> 801d201c4ab3496d6622a64aa20d9068e7082577
 })
 
-export class CadastroUsuarioComponent implements OnInit{
+export class CadastrarUsuarioComponent implements OnInit{
 
     @Input() tituloInterno: string = '';
-    // @Input() usuario: UsuarioApp = null;
 
+  public submitted = false;
   public form: FormGroup;
   public formBuilder: FormBuilder = new FormBuilder;
   public cargos: SelectItem[] = [];
 
   constructor (
-      private messageService: MessageService,
-    //   private usuarioSerice: CadastroUsuarioService,
-    //   private cargoService: CargoService
+      private usuarioSerice: UsuarioService,
+      private cargoService: CargoService
     ){    }
 
   ngOnInit(): void {
       this.criarFormulario();
-    //   this.obterCargos();
+      this.obterCargos();
   }
 
   public criarFormulario():void {
@@ -53,15 +44,16 @@ export class CadastroUsuarioComponent implements OnInit{
       })
   }
 
-//   public obterCargos():void {
-//       this.cargoService.listar().subscribe((cargos : SelectItem [] => this.cargos = cargos);
-// }
+  public obterCargos():void {
+      this.cargoService.listar().subscribe((cargos : SelectItem []) => this.cargos = cargos);
+}
 
-    // public formatarDataformulario(): Date {
-    //     let dataSplit: string[] = (this.form.get('dataNascimento').value as String).split
-    // }
+    public formatarDataformulario(): Date {
+        let dataSplit: string[] = (this.form.get('dataNascimento').value as String).split("/");
+        return new Date(`${dataSplit[2]}-${dataSplit[1]}-${dataSplit[0]}T00:00:00`);
+    }
 
-//   public submit():void {
+//     public submit():void {
 //       if(this.form.valid){
 //           FuncoesUtil.messagemErro(this.messageService, MessageUtils);
 //           return;
@@ -78,5 +70,11 @@ export class CadastroUsuarioComponent implements OnInit{
       if(this.tituloInterno.length == 0){
           this.tituloInterno = "Cadastrar Usuário";
       }
+  }
+
+  public cancel(): void {
+    this.submitted = false;
+    this.form.reset();
+    // console.log('onCancel');
   }
 }
