@@ -1,20 +1,9 @@
-<<<<<<< HEAD
-import { FullCalendarComponent } from './module/evento/components/evento/full-calendar/full-calendar.component';
-=======
-<<<<<<< HEAD
 
-=======
->>>>>>> 801d201c4ab3496d6622a64aa20d9068e7082577
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { EventoRoutingModule } from './module/evento/evento-routing.module';
 import { EventoModule } from './module/evento/evento.module';
 import { UsuarioRoutingModule } from './module/usuario/usuario-routing.module';
-<<<<<<< HEAD
 import { UsuarioModule } from './module/usuario/usuario.module';
-
-=======
->>>>>>> 2173746dddf67f0361097e76abd19ea9b7abf5c0
->>>>>>> 801d201c4ab3496d6622a64aa20d9068e7082577
 import { DiarioErrosComponent } from './components/diario-erros/diario-erros.component';
 import { AppFooterComponent } from './components/footer/app.footer.component';
 import { AppTopbarComponent } from './components/topbar/app.topbar.component';
@@ -53,16 +42,13 @@ import { BlockUIModule } from 'ng-block-ui';
         ErrorModule,
         VersionTagModule,
         SecurityModule.forRoot(environment.auth),
-<<<<<<< HEAD
         MenuModule,
         UsuarioModule,
         UsuarioRoutingModule,
         EventoModule,
         EventoRoutingModule,
         FullCalendarModule,
-=======
         MenuModule
->>>>>>> 801d201c4ab3496d6622a64aa20d9068e7082577
     ],
 
     providers: [
