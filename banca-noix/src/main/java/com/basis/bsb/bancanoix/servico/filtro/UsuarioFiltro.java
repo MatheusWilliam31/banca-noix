@@ -51,7 +51,7 @@ public class UsuarioFiltro implements EntityFiltro {
         }
 
         if (cargo != null) {
-            predicates.add(cb.like(root.join(Cargo_.NOME), "%" + cargo + "%"));
+            predicates.add(cb.like(root.join(Cargo_.TITULO), "%" + cargo + "%"));
         }
 
         return predicates;

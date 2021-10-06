@@ -1,0 +1,83 @@
+/* *, *:before, *:after {
+  box-sizing: border-box
+}
+
+html {
+  font-size: 10px;
+  transition: all .5s ease
+}
+
+body {
+  background-color: white
+}
+
+form {
+  font-family: 'roboto', sans-serif;
+  color: white;
+  max-width: 36rem;
+  margin: 0;
+  transition: poition 0 ease
+}
+
+label {
+  font-size: 1.6rem;
+  color: grey;
+  margin-left: .8rem
+}
+
+a:link, a:visited, a:hover {
+  font-size: 1.6rem;
+  color: aqua;
+  text-decoration: none
+}
+
+fieldset {
+  border: none;
+  padding: 1.6rem 1.2rem
+}
+
+legend {
+  font-size: 3.6rem;
+  font-weight: 100;
+  text-transform: none;
+  color: green;
+  padding: 1.6rem 0 0 0;
+}
+
+
+.btn {
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 1.3rem 1.8rem;
+  font-size: 1.8rem;
+  letter-spacing: 0.05rem;
+  border: none;
+  display: inline-block;
+  outline: none;
+  margin: 1.2rem 0;
+  border-radius: .4rem;
+}
+
+.ng-invalid .btn {
+  pointer-events: none;
+  background-color: grey;
+  opacity: 0.25;
+}
+
+input {
+  display: block;
+  padding: 1.2rem;
+  align-items: center;
+  margin: .4rem 0 1.6rem 0;
+  font-size: 1.8rem;
+  font-weight: 200;
+  outline: none;
+  color: black;
+  border-radius: .2rem;
+  border: 1px solid white;
+  transition: border .5s ease .125s;
+} */

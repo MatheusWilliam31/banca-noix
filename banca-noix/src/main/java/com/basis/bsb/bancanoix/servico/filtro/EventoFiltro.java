@@ -50,7 +50,7 @@ public class EventoFiltro implements EntityFiltro<Evento> {
                     "%" + nome + '%'));
         }
         if (Objects.nonNull(patrocinador)) {
-            predicates.add(cb.like(root.get(String.valueOf(Usuario_.patrocinador)), "%" + patrocinador + "%")
+            predicates.add(cb.like(root.get(String.valueOf(Usuario_.NOME)), "%" + patrocinador + "%")
             );
         }
 

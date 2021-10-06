@@ -5,20 +5,18 @@ import java.util.Collection;
 
 public class ConstrutorDeEntidade<E> {
 
-    private CustomizacaoEntidade customizacao;
-
-
+    private CustomizacaoEntidade<E> customizacao;
 
     public E construir() throws ParseException {
         final E entidade = construirEntidade();
         if (isCustomizado()) {
-            customizacao.executar((liquibase.pro.packaged.E) entidade);
+            customizacao.executar(entidade);
         }
         return persistir(entidade);
     }
 
 
-    public ConstrutorDeEntidade<E> customizar(CustomizacaoEntidade customizacao) {
+    public ConstrutorDeEntidade<E> customizar(CustomizacaoEntidade<E> customizacao) {
         this.customizacao = customizacao;
         return this;
     }
@@ -43,7 +41,7 @@ public class ConstrutorDeEntidade<E> {
         return this.customizacao != null;
     }
 
-    public void setCustomizacao(CustomizacaoEntidade customizacao) {
+    public void setCustomizacao(CustomizacaoEntidade<E> customizacao) {
         this.customizacao = customizacao;
     }
 }

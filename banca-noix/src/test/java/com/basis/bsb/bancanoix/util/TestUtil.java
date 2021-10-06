@@ -8,15 +8,21 @@ import org.hamcrest.TypeSafeDiagnosingMatcher;
 import org.springframework.format.datetime.standard.DateTimeFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.http.MediaType;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class testUtil {
+public class TestUtil {
+
+    public static final MediaType APPLICATION_JSON_UTF8 = new MediaType(
+            MediaType.APPLICATION_JSON.getType(),
+            MediaType.APPLICATION_JSON.getSubtype(), StandardCharsets.UTF_8);
 
     public static byte[] convertObjectToJsonBytes(Object object)
             throws IOException {
@@ -37,33 +43,6 @@ public class testUtil {
         return byteArray;
     }
 
-    public static ZonedDateTimeMatcher sameInstant(ZonedDateTime date) {
-        return new ZonedDateTimeMatcher(date);
-    }
-
-    public static <T> void equalsVerifier(Class<T> clazz) throws Exception {
-        T domainObject1 = clazz.getConstructor().newInstance();
-        assertThat(domainObject1.toString()).isNotNull();
-        assertThat(domainObject1).isEqualTo(domainObject1);
-        assertThat(domainObject1.hashCode()).isEqualTo(domainObject1.hashCode());
-        // Test with an instance of another class
-        Object testOtherObject = new Object();
-        assertThat(domainObject1).isNotEqualTo(testOtherObject);
-        assertThat(domainObject1).isNotEqualTo(null);
-        // Test with an instance of the same class
-        T domainObject2 = clazz.getConstructor().newInstance();
-        assertThat(domainObject1).isNotEqualTo(domainObject2);
-        // HashCodes are equals because the objects are not persisted yet
-        assertThat(domainObject1.hashCode()).isEqualTo(domainObject2.hashCode());
-    }
-
-    public static FormattingConversionService createFormattingConversionService() {
-        DefaultFormattingConversionService dfcs = new DefaultFormattingConversionService();
-        DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
-        registrar.setUseIsoFormat(true);
-        registrar.registerFormatters(dfcs);
-        return dfcs;
-    }
 
     public static class ZonedDateTimeMatcher extends TypeSafeDiagnosingMatcher<String> {
 
@@ -94,8 +73,29 @@ public class testUtil {
             description.appendText("a String representing the same Instant as ").appendValue(date);
         }
     }
+
+    public static ZonedDateTimeMatcher sameInstant(ZonedDateTime date) {
+        return new ZonedDateTimeMatcher(date);
+    }
+
+    public static <T> void equalsVerifier(Class<T> clazz) throws Exception {
+        T domainObject1 = clazz.getConstructor().newInstance();
+        assertThat(domainObject1.toString()).isNotNull();
+        assertThat(domainObject1).isEqualTo(domainObject1);
+        assertThat(domainObject1.hashCode()).isEqualTo(domainObject1.hashCode());
+        Object testOtherObject = new Object();
+        assertThat(domainObject1).isNotEqualTo(testOtherObject);
+        assertThat(domainObject1).isNotEqualTo(null);
+        T domainObject2 = clazz.getConstructor().newInstance();
+        assertThat(domainObject1).isNotEqualTo(domainObject2);
+        assertThat(domainObject1.hashCode()).isEqualTo(domainObject2.hashCode());
+    }
+
+    public static FormattingConversionService createFormattingConversionService() {
+        DefaultFormattingConversionService dfcs = new DefaultFormattingConversionService();
+        DateTimeFormatterRegistrar registrar = new DateTimeFormatterRegistrar();
+        registrar.setUseIsoFormat(true);
+        registrar.registerFormatters(dfcs);
+        return dfcs;
+    }
 }
-
-
-
-

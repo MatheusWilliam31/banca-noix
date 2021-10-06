@@ -36,7 +36,7 @@ public class CargoFiltro implements EntityFiltro {
         }
 
         if(titulo != null){
-            predicates.add(cb.like(root.get(Cargo_.nome), "%" + titulo + "%"));
+            predicates.add(cb.like(root.get(Cargo_.TITULO), "%" + titulo + "%"));
         }
 
         return predicates;
