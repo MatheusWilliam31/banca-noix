@@ -1,17 +1,18 @@
-import { ListarUsuariosComponent } from './components/listar-usuarios/listar-usuarios.component';
+import { ListarUsuariosComponent } from './components/usuario/listar-usuarios/listar-usuarios.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { CriarUsuariosComponent } from './components/criar-usuarios/criar-usuarios.component';
+import { NgModule, Component } from '@angular/core';
+import { CadastroUsuarioComponent } from './components/usuario/cadastro-usuario/cadastro-usuario.component';
 
 const routes: Routes = [
-  { path: 'usuario', component: ListarUsuariosComponent, data: { breadcrumb: 'Usuário'}},
-  { path: 'cadastrar', component: CriarUsuariosComponent } 
-
-  //   { path: '', component: UsuarioComponent, pathMatch: 'full', children: [
-  //     { path: '', redirectTo: 'listar'},
-  //     { path: 'listar', component: ListarUsuariosComponent}
-  //   ]}
-  // ];
+  { path: '', component: ListarUsuariosComponent, data: { breadcrumb: 'Usuário' }},
+  { path: 'cadastrar' , component: CadastroUsuarioComponent, data: {breadcrumb: 'Cadastrar'}}
+  
+// TODO: reavaliar alocação de rotas
+//   { path: '', component: UsuarioComponent, pathMatch: 'full', children: [
+//     { path: '', redirectTo: 'listar'},
+//     { path: 'listar', component: ListarUsuariosComponent}
+//   ]}
+// ];
 ];
 @NgModule({
   imports: [
