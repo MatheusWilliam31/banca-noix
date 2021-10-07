@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { EventoRoutingModule } from './evento-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { CarouselComponent } from './components/evento/carousel/carousel.component';
+import { CarouselModule } from 'primeng';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -15,12 +17,14 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 @NgModule({
   declarations: [
     FullCalendarComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
     EventoRoutingModule,
     SharedModule,
-    FullCalendarModule
+    FullCalendarModule,
+    CarouselModule
     
   ],
   providers: []

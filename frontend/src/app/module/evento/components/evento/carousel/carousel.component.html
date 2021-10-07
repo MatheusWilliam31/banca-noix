@@ -1,0 +1,16 @@
+<p-carousel [value]="evento" [numVisible]="4" [numScroll]="3" [circular]="false"[responsiveOptions]="responsiveOptions">
+    <p-header>
+        <h3>Listar Eventos</h3>
+    </p-header>
+    <ng-template let-event pTemplate="item">
+        <div class="event-details">
+            <div class="p-grid p-nogutter">
+                <div class="p-col-12 car-data">
+                    <div class="event-title">{{event.nome}}</div>
+                    <div class="event-subtitle">{{event.data}} | {{event.situacao}}</div>
+                    <div class="event-subtitle">{{event.patrocinador}} | {{event.valor}}</div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

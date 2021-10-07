@@ -21,13 +21,7 @@ export class ListarEventoComponent implements OnInit {
   }
     
   public getter(): void {
-      this.service.listarEvento().subscribe(
-        (data: Evento[]) => {
-        this.eventos = data;
-    },
-           (error: any) => {
-          this.error = error;
-      });
+    this.service.listarEvento().subscribe((res: Evento[]) => {this.eventos = res} , (erro: any) => {this.error = erro});  
     }
 
 }
