@@ -3,7 +3,7 @@ package com.basis.bsb.bancanoix.builder;
 import java.text.ParseException;
 import java.util.Collection;
 
-public class ConstrutorDeEntidade<E> {
+public abstract class ConstrutorDeEntidade<E> {
 
     private CustomizacaoEntidade<E> customizacao;
 
