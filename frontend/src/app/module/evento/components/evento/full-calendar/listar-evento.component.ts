@@ -4,8 +4,6 @@ import { Evento } from 'src/app/model/Evento';
 
 @Component({
   selector: 'app-listar-evento',
-  templateUrl: './listar-evento.component.html',
-
 })
 export class ListarEventoComponent implements OnInit {
 

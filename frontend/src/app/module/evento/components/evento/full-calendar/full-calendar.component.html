@@ -1,7 +1,24 @@
-<div><button (click)="toggleWeekends()">semana</button>
-    <full-calendar #evento deepChangeDetection = "true" [options]="calendarOptions" ></full-calendar></div>
- 
-
+<div class='app-calendar'>
+    <full-calendar
+      #calendar
+      defaultView="dayGridMonth"
+      [header]="{
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      }"
+      eventLimit="true"
+      [validRange]="{
+                  start: '2019-06-19',
+                  end: '2019-06-21'
+                }"
+      [plugins]="calendarPlugins"
+      [weekends]="calendarWeekends"
+      [events]="calendarEvents"
+      (dateClick)="handleDateClick($event)"
+      (eventClick)="eventClicked($event)"
+    ></full-calendar> 
+</div>
 <app-carousel></app-carousel>	
 <router-outlet></router-outlet>
 
