@@ -1,1 +1,24 @@
-<p>CONSEGUI!!!</p>
+<h2 *ngIf="!isNew">Edit evento: '{{CadastrarEvento?.nome}}'</h2>
+    <h2 *ngIf="isNew">Create new event</h2>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label>Title:
+          <input type="text" formControlName="nome"/>
+        </label>
+      </div>
+       <div class="form-group">
+        <label>Start date:
+          <input type="text" formControlName="data"/>
+        </label>
+      </div>
+       <div class="form-group">
+        <label>End date:
+          <input type="text" formControlName="data"/>
+        </label>
+      </div>
+      <div class="form-group">
+      </div>
+      <button type="submit" *ngIf="isNew" (click)="onAdd()">Add</button>
+      <button type="submit" *ngIf="!isNew" (click)="onUpdate()">Update</button>
+      <button type="button" (click)="close.emit()">Cancel</button>
+    </form>
