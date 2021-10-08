@@ -1,3 +1,10 @@
+<!-- <div *ngIf="tituloInterno.length < 0">
+    <h1>{{ tituloInterno }}</h1>
+    <hr>
+</div> -->
+
+<h1 style="padding-bottom: 20px;">Cadastrar Usuário</h1>
+<br>
 
 <form [formGroup]="form" class="ui-g">
     <div class="ui-sm-12 ui-md-6 ui-lg-4 ui-xl-3">
@@ -36,5 +43,11 @@
     </div>
     <div class="ui-g-12">
         <p-button class="ui-fluid" label="Salvar" (onClick)="submit()"></p-button>
+        <p-button class="ui-fluid" label="Cancelar" (onClick)="cancel()"></p-button>
     </div>
 </form>
+
+
+
+
+

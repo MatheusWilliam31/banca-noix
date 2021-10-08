@@ -51,8 +51,7 @@ import { CarouselComponent } from './module/evento/components/evento/carousel/ca
         EventoModule,
         EventoRoutingModule,
         FullCalendarModule,
-        MenuModule,
-        
+        MenuModule
     ],
 
     providers: [

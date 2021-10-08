@@ -31,7 +31,7 @@ public class EventoServico {
         return mapper.toDto(repositorio.findAll(filtro.filter()));
     private final EmailServico servico;
 
-<<<<<<< HEAD
+
     @Scheduled(cron = "0 01 8 * * 5")
     public void rotinaEmail(){
         Optional<Evento> eventoOpcional = repositorio.buscarEvento(LocalDate.now());
@@ -41,19 +41,10 @@ public class EventoServico {
             Evento eventoDoDia = eventoOpcional.get();
             emailDTO.setDestinatario("mwsl.loose@gmail.com");
             emailDTO.setAssunto("promocao");
-            emailDTO.setCorpo("Novo evento, promocao de fulano" + eventoDoDia.getMotivo().getTitulo()+ "esse evento vai ser patrocinado por " +
-            eventoDoDia.getPatrocinador().toArray()[0] + " e por mais " + (eventoDoDia.getPatrocinador().toArray().length -1));
-=======
-    @Scheduled(cron = "0 0 0 * * 5")
-    public void rotinaEmail() {
-        EmailDTO emailDTO = new EmailDTO();
-        emailDTO.setDestinatario("mwsl.loose@gmail.com");
-        emailDTO.setAssunto("promocao");
-        emailDTO.setCorpo("promocao de fulano");
-        emailDTO.getCopias().add("mwsl.loose@gmail.com");
->>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
+            emailDTO.setCorpo("Novo evento, promocao de fulano" + 	buscarEvento.getMotivo().getTitulo()+ "esse evento vai ser patrocinado por " +
+            buscarEvento.getPatrocinador().toArray()[0] + " e por mais " + (eventoDoDia.getPatrocinador().toArray().length -1));
 
-            for (Usuario user : eventoDoDia.getPatrocinador()) {
+            for (Usuario user : buscarEvento.getPatrocinador()) {
                 copias.add(user.getEmail());
 
             }
