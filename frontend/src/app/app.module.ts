@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageNotificationModule, BreadcrumbModule, MenuModule, ErrorStackModule } from '@nuvem/primeng-components';
 import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-base';
 import { BlockUIModule } from 'ng-block-ui';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import { BlockUIModule } from 'ng-block-ui';
         EventoModule,
         EventoRoutingModule,
         FullCalendarModule,
-        MenuModule
+        MenuModule,
+        InputTextModule
     ],
 
     providers: [
