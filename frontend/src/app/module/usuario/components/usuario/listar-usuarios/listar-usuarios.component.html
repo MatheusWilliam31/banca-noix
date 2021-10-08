@@ -55,6 +55,8 @@
 </div>
 
 <div>
-    <button [routerLink]="[ 'cadastrar' ]"> Adicionar</button>
+    <button routerLink="cadastrar"> cadastrar</button>
+    <button routerLink="editar/:id">editar</button><br>
 </div>
 
+<router-outlet></router-outlet>

@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../../app/model/usuario';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-
  providedIn: 'root',
-
 })
+
 export class UsuarioService {
-  private usuario: Usuario[] = [];
-  
 
-  constructor(
-    private HttpClient:HttpClient,
-    private Usuario : Usuario ) {}
+  private readonly BASE_URL: string = '/usuarios/filter';
+
+  constructor(private http: HttpClient) {}
    
+    public listar(): Observable<Usuario[]> {
+      return this.http.get<Usuario[]>(`${environment.apiUrl}${this.BASE_URL}`);
+    }
 
-    getUsuario() {
-      return this.usuario;
+    public criar(usuario: Usuario): Observable<Usuario> {
+      return this.http.post<Usuario>(`${environment.apiUrl}${this.BASE_URL}`, usuario);
     }
-    postUsuario() {
-      return this.usuario;
-    }
+
+
   }

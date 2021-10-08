@@ -1,5 +1,3 @@
-import { beforeEach } from 'selenium-webdriver/testing';
-import { describe } from 'selenium-webdriver';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { EventoRoutingModule } from './module/evento/evento-routing.module';
@@ -47,10 +45,7 @@ import { BlockUIModule } from 'ng-block-ui';
         EventoModule,
         EventoRoutingModule,
         FullCalendarModule,
-        MenuModule,
-        describe,
-        beforeEach
-        
+        MenuModule
     ],
 
     providers: [
