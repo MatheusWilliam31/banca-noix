@@ -1,9 +1,6 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
-<<<<<<< HEAD
-=======
 import com.basis.bsb.bancanoix.dominio.Cargo_;
->>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
 import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.dominio.Usuario_;
 import org.springframework.data.jpa.domain.Specification;
@@ -53,14 +50,10 @@ public class UsuarioFiltro implements EntityFiltro {
             predicates.add(cb.like(root.get(Usuario_.cpf), "%" + cpf + "%"));
         }
 
-<<<<<<< HEAD
 
-=======
         if (cargo != null) {
-            predicates.add(cb.like(root.join(Cargo_.NOME), "%" + cargo + "%"));
+            predicates.add(cb.like(root.join(Cargo_.TITULO), "%" + cargo + "%"));
         }
->>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
-
         return predicates;
 
     }

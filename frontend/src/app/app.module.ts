@@ -16,6 +16,11 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotificationModule, BreadcrumbModule, MenuModule, ErrorStackModule } from '@nuvem/primeng-components';
 import { ErrorModule, SecurityModule, VersionTagModule } from '@nuvem/angular-base';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+
+
+
 import { BlockUIModule } from 'ng-block-ui';
 
 @NgModule({
@@ -42,10 +47,12 @@ import { BlockUIModule } from 'ng-block-ui';
         VersionTagModule,
         SecurityModule.forRoot(environment.auth),
         MenuModule,
+
         EventoModule,
         EventoRoutingModule,
         FullCalendarModule,
         MenuModule
+
     ],
 
     providers: [

@@ -3,12 +3,6 @@ package com.basis.bsb.bancanoix.builder;
 import java.text.ParseException;
 import java.util.Collection;
 
-/**
- * Classe base para criação de construtores de entidades para testes
- * automatizados.
- *
- * @param <E> parâmetro
- */
 public abstract class ConstrutorDeEntidade<E> {
 
     private CustomizacaoEntidade<E> customizacao;

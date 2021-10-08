@@ -2,7 +2,6 @@ package web.rest.rest;
 
 import com.basis.bsb.bancanoix.servico.MotivoServico;
 import com.basis.bsb.bancanoix.servico.dto.MotivoDTO;
-import com.basis.bsb.bancanoix.servico.filtro.MotivoFiltro;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,13 +33,6 @@ public class MotivoRecurso {
         MotivoDTO motivoDTO = servico.findById(id);
         return ResponseEntity.ok().body(motivoDTO);
     }
-
-    @GetMapping("/filtro")
-    public ResponseEntity<List<MotivoDTO>> findByTitle(MotivoFiltro filtro){
-        return ResponseEntity.ok(servico.findAllTitle(filtro));
-
-    }
-
 
     @PostMapping
     public ResponseEntity<MotivoDTO> create(@RequestBody MotivoDTO dto) {

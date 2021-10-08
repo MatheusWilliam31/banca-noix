@@ -22,9 +22,9 @@ const routes: Routes = [
 
 ];
 @NgModule({
-  imports:[
+  imports: [
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
 })
-export class UsuarioRoutingModule {}
+export class UsuarioRoutingModule { }

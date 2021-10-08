@@ -1,17 +1,13 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
-import com.basis.bsb.bancanoix.dominio.Evento;
-import com.basis.bsb.bancanoix.dominio.Evento_;
-import com.basis.bsb.bancanoix.dominio.Usuario;
-import com.basis.bsb.bancanoix.dominio.Usuario_;
-import com.basis.bsb.bancanoix.servico.dto.EventoDTO;
+import com.basis.bsb.bancanoix.dominio.*;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.Specification;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.*;
-import javax.persistence.metamodel.SingularAttribute;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,11 +46,9 @@ public class EventoFiltro implements EntityFiltro<Evento> {
                     "%" + nome + '%'));
         }
         if (Objects.nonNull(patrocinador)) {
-            predicates.add(cb.like(root.get(String.valueOf(Usuario_.patrocinador)), "%" + patrocinador + "%")
+            predicates.add(cb.like(root.get(String.valueOf(Usuario_.NOME)), "%" + patrocinador + "%")
             );
         }
-
-
         if (Objects.nonNull(id)) {
             Expression<?> param = null;
             predicates.add(cb.equal(root.get(Evento_.id), param));

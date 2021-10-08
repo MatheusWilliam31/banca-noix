@@ -14,5 +14,4 @@ public interface CustomizacaoEntidade <E>{
      * @param entidade a ser customizada
      */
     void executar(E entidade);
-
 }

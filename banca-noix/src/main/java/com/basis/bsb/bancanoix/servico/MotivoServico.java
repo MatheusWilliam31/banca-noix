@@ -4,7 +4,6 @@ import com.basis.bsb.bancanoix.dominio.Motivo;
 import com.basis.bsb.bancanoix.repositorio.MotivoRepositorio;
 import com.basis.bsb.bancanoix.servico.dto.MotivoDTO;
 import com.basis.bsb.bancanoix.servico.exceptions.ResourceNotFoundException;
-import com.basis.bsb.bancanoix.servico.filtro.MotivoFiltro;
 import com.basis.bsb.bancanoix.servico.mappers.MotivoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -20,14 +19,9 @@ public class MotivoServico {
 
     public final MotivoRepositorio repositorio;
     public final MotivoMapper mapper;
-    private final MotivoFiltro motivoFiltro;
 
     public List<MotivoDTO> findAll(){
         return mapper.toDto(repositorio.findAll());
-    }
-
-    public List<MotivoDTO> findAllTitle(MotivoFiltro filtro){
-        return mapper.toDto(repositorio.findAll(filtro.filter()));
     }
 
     public MotivoDTO findById(Long id) {

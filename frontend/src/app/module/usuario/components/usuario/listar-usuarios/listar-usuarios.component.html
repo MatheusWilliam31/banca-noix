@@ -1,12 +1,12 @@
 <div class="listar-usuario">
-    <h1><span> Lista de Usuários</span></h1>
-    <p-table #dt1 [value]="customers1" selectionMode="single" [(selection)]="selectedCustomer1" dataKey="id" class="container" styleClass="p-datatable-customers" responsiveLayout="scroll"
-        [rows]="10" stateStorage="session" stateKey="statedemo-session">
+    <h5>Lista de Cadastros</h5>
+    <p-table #dt1 [value]="customers1" selectionMode="single" [(selection)]="selectedCustomer1" dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
+        [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session">
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
-                <th pSortableColumn="cargo">Cargo <p-sortIcon field="cargo"></p-sortIcon></th>
-                <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+                <th pSortableColumn="name">Cargo <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="country.name">Country <p-sortIcon field="country.name"></p-sortIcon></th>
+                <th pSortableColumn="representative.name">Representative <p-sortIcon field="representative.name"></p-sortIcon></th>
                 <th pSortableColumn="status">Status <p-sortIcon field="status"></p-sortIcon></th>
             </tr>
             <tr>
