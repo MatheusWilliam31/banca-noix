@@ -8,11 +8,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class EventoService {
+
   private static readonly URL = environment.apiUrl;
 
-  constructor( private http: HttpClient ) { }  
-    public listarEvento(): Observable <Evento[]> {
-      return this.http.get<Evento[]>('${URL}/eventos/filtros');
-    }
+  constructor( private http: HttpClient ) { }
 
-}
+    public listarEvento(): Observable<Evento[]> {
+      return this.http.get<Evento[]>(`${URL}/eventos/filtro`);
+    }
+    
+  }
