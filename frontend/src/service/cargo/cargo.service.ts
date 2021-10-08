@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CargoService { 
-    public readonly BASE_URL: string = '/cargo';
+    public readonly BASE_URL: string = '/cargo/filter';
 
     constructor(private http: HttpClient){}
 

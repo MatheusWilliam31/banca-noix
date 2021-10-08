@@ -27,10 +27,7 @@ public class EventoServico {
 
     private final EventoMapper mapper;
     private final EventoRepositorio repositorio;
-
-    public List<EventoDTO> filtrarData(EventoFiltro filtro) {
-        return mapper.toDto((List<Evento>) repositorio.findAll((Pageable) filtro.filter()));
-    }
+    
 
     public List<EventoDTO> findAll() {
         return mapper.toDto(repositorio.findAll());
@@ -48,7 +45,6 @@ public class EventoServico {
         return mapper.toDto(entity);
     }
 
-
     public void delete(Long id) {
         try {
             repositorio.deleteById(id);
@@ -56,4 +52,5 @@ public class EventoServico {
             throw new ResourceNotFoundException("Evento não encontrado!!!");
         }
     }
+
 }

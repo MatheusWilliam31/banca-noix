@@ -1,48 +1,71 @@
-import { CalendarOptions } from '@fullcalendar/angular';
-
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, SimpleChanges, OnChanges, Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy, Input, EventEmitter, Output } from '@angular/core';
+import 'fullcalendar';
+import { $ } from 'protractor';
+import { Evento } from 'src/app/model/Evento';
 
 @Component({
-  selector: 'app-full-calendar',
-  templateUrl: './full-calendar.component.html',
-  styleUrls: ['./full-calendar.component.css']
+  selector: 'app-calendar',
+  template: `
+  <div #calendar></div>
+  `,
+  styleUrls: ['./full-calendar.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FullCalendarComponent {
-  [x: string]: any;
+export class FullCalendarComponent implements AfterViewInit, OnDestroy, OnChanges {
+  @Input() viewModes = ['Mês', 'agendaSemana', 'agendaDia'];
+  @Input() navButtons = ['prev', 'next', 'today'];
+  @Input() appointments: Evento[] = [];
+  @Output() requestNewAppointment = new EventEmitter<Evento>();
+  @Output() requestUpdateAppointment = new EventEmitter<Evento>();
+  @Output() appointmentUpdated = new EventEmitter<Evento>();
+  @ViewChild('calendar') calendar: ElementRef;
+  constructor() { }
 
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    dateClick: this.handleDateClick.bind(this), // bind is important!
-    events: [
-      { title: 'evento 1', date: '01-04-2021' },
-      { title: 'evento 2', date: '01-04-2021' }
-    ],
-    weekends: false
-    
-  };
-  toggleWeekends() {
-    this.calendarOptions.weekends = !this.calendarOptions.weekends
-  
-  }
-  handleDateClick(arg) {
-    alert('Evento: ' + arg.dateStr)
-  }
-  getEvento() {
-    let eventoApi = this.fullCalendarComponent.getApi();
-    eventoApi.next();
+  get $Instance(): any {
+    return $(this.calendar.nativeElement);
   }
 
-};
-// document.addEventListener('evento', function() {
-//   let calendarEl = document.getElementById('evento');
+  ngOnDestroy(): void {
+    this.$Instance.fullCalendar('destroy');
+  }
 
-//   let calendar = new Calendar(calendarEl, {
-//     plugins: [ dayGridPlugin, momentPlugin ],
+  ngOnChanges(simpleChanges: SimpleChanges): void {
+    if (simpleChanges.appointments && simpleChanges.appointments.currentValue) {
+      this.updateAppointments();
+    }
+  }
 
-//     // because the plugin is present, you can now use formatting strings.
-//     // will produce something like "Tuesday, September 18, 2018"
-//     titleFormat: 'dddd, MMMM, YYYY'
-//   });
+  ngAfterViewInit(): void {
+    this.$Instance.fullCalendar({
+      selectable: true,
+      editable: true,
+      eventSources: [{
+        events: this.appointments || [],
+      }],
+      header: {
+        left: this.navButtons.join(','),
+        center: 'title',
+        right: this.viewModes.join(',')
+      },
+      eventClick: (event: Evento) => {
+        this.requestUpdateAppointment.emit(this.neutralize(event));
+      },
+      eventDrop: (event: Evento, delta, revert) => {
+        this.appointmentUpdated.emit(this.neutralize(event));
+      }
+    });
+  }
 
-//   calendar.render();
-// });
+  private updateAppointments(): void {
+    // we have to do it this way, because other wise the plugin is dependent on the 
+    // reference of the event source. So we have to remove all event sources and add a new one
+    this.$Instance.fullCalendar('removeEventoSources', this.$Instance.fullCalendar('getEventSources'));
+    this.$Instance.fullCalendar('addEventoSource', { events: this.appointments });
+  }
+
+  private neutralize(event: Evento): Evento {
+    // the widget mutates the appointment in many ways. We can keep it consistent with this function
+    const { id, nome, data, situacao, valor } = event;
+    return { id, nome, data, situacao, valor };
+  }
+}
