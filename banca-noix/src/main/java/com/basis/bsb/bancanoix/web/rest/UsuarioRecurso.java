@@ -1,4 +1,4 @@
-package web.rest.rest;
+package com.basis.bsb.bancanoix.web.rest;
 
 import com.basis.bsb.bancanoix.servico.UsuarioServico;
 import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;

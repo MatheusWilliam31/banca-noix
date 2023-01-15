@@ -4,6 +4,5 @@ import com.basis.bsb.bancanoix.dominio.Usuario;
 import com.basis.bsb.bancanoix.servico.dto.UsuarioDTO;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring", uses = CargoMapper.class)
 public interface UsuarioMapper extends EntityMapper <UsuarioDTO, Usuario>{
 }

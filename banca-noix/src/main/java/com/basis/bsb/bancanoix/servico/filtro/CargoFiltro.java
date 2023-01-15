@@ -1,7 +1,6 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
 import com.basis.bsb.bancanoix.dominio.Cargo;
-import com.basis.bsb.bancanoix.dominio.Cargo_;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -31,11 +30,11 @@ public class CargoFiltro implements EntityFiltro {
         cq.orderBy(cb.desc(root.get("id")));
 
         if(id != null){
-            predicates.add(cb.equal(root.get(Cargo_.id), id));
+            predicates.add(cb.equal(root.get(String.valueOf(id)), id));
         }
 
         if(titulo != null){
-            predicates.add(cb.like(root.get(Cargo_.titulo), "%" + titulo + "%"));
+            predicates.add(cb.like(root.get(titulo), "%" + titulo + "%"));
         }
 
         return predicates;

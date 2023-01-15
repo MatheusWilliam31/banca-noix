@@ -1,7 +1,6 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
 import com.basis.bsb.bancanoix.dominio.Motivo;
-import com.basis.bsb.bancanoix.dominio.Motivo_;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -34,15 +33,15 @@ public class MotivoFiltro implements EntityFiltro {
 
 
         if (Objects.nonNull(id)) {
-            predicates.add(criteriaBuilder.equal(root.get(Motivo_.id), id));
+            predicates.add(criteriaBuilder.equal(root.get(String.valueOf(id)), id));
         }
 
         if (Objects.nonNull(descricao)) {
-            predicates.add(criteriaBuilder.like(root.get(Motivo_.descricao), "%" + descricao + "%"));
+            predicates.add(criteriaBuilder.like(root.get(descricao), "%" + descricao + "%"));
         }
 
         if (Objects.nonNull(titulo)) {
-            predicates.add(criteriaBuilder.like(root.get(Motivo_.descricao), "%" + titulo + "%"));
+            predicates.add(criteriaBuilder.like(root.get(titulo), "%" + titulo + "%"));
         }
 
         return predicates;

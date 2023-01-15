@@ -1,13 +1,9 @@
 package com.basis.bsb.bancanoix.servico.filtro;
 
-<<<<<<< HEAD
-=======
-import com.basis.bsb.bancanoix.dominio.Cargo_;
->>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
 import com.basis.bsb.bancanoix.dominio.Usuario;
-import com.basis.bsb.bancanoix.dominio.Usuario_;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -16,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@NoArgsConstructor
+@AllArgsConstructor
 public class UsuarioFiltro implements EntityFiltro {
 
     private Long id;
@@ -23,6 +21,7 @@ public class UsuarioFiltro implements EntityFiltro {
     private String cargo;
     private String email;
     private String cpf;
+
 
     @Override
     public Specification<Usuario> filter() {
@@ -38,28 +37,24 @@ public class UsuarioFiltro implements EntityFiltro {
         cq.orderBy(cb.desc(root.get("id")));
 
         if (id != null) {
-            predicates.add(cb.equal(root.get(Usuario_.id), id));
+            predicates.add(cb.equal(root.get(String.valueOf(id)), id));
         }
 
         if (nome != null) {
-            predicates.add(cb.like(root.get(Usuario_.nome), "%" + nome + "%"));
+            predicates.add(cb.like(root.get(nome), "%" + nome + "%"));
         }
 
         if (email != null) {
-            predicates.add(cb.like(root.get(Usuario_.email), "%" + email + "%"));
+            predicates.add(cb.like(root.get(email), "%" + email + "%"));
         }
 
         if (cpf != null) {
-            predicates.add(cb.like(root.get(Usuario_.cpf), "%" + cpf + "%"));
+            predicates.add(cb.like(root.get(cpf), "%" + cpf + "%"));
         }
 
-<<<<<<< HEAD
-
-=======
         if (cargo != null) {
-            predicates.add(cb.like(root.join(Cargo_.NOME), "%" + cargo + "%"));
+            predicates.add(cb.like(root.join(cargo), "%" + cargo + "%"));
         }
->>>>>>> ee2b70676004b74d95e18c1c8b4579ea7955aa73
 
         return predicates;
 
